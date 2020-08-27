@@ -25,7 +25,7 @@ include("requestuserdata.php");
 			<p class="headline">Support & Creddits</p>
 			<h3>Napisz do supportu: support@rakbook.pl</h3>
 			<h3>Zajrzyj na kanał rakbooka na discord: <a href="https://discord.gg/YMexc5W">rakbook-feedback</a>
-			<!---<h3>Chcesz pomóc w rozwoju rakbooka? Mamy repozytorium na <a href="https://github.com/LifeHasNoPurpose/rakbook">githubie</a></h3>-->
+			<h3>Chcesz pomóc w rozwoju rakbooka? Mamy repozytorium na <a href="https://github.com/Rakbook/rakbook">githubie</a></h3>
 			<br/><br/><br/>
 			<h3>Użwane Grafiki:</h3>
 			<p style="margin: 5px;"><a href="https://commons.wikimedia.org/wiki/File:Cog_font_awesome.svg">Settings icon</a> by Dave Gandy under Creative Commons Attribution-Share Alike 3.0 Unported license</p>
