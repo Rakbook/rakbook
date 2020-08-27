@@ -21,6 +21,22 @@ function getusersrakcoins($userid)
 	}
 }
 
+function getstyledrakcoins($rakcoins){
+
+	if($rakcoins == 1 || $rakcoins == -1){
+		return $rakcoins. ' <img src="images/rakcoin.svg" class="rakcoinImage"> Rakcoin!';
+	}
+	else{
+		$modulo = $rakcoins % 10;
+		if($modulo == 2 || $modulo == 3 || $modulo == 4){
+			return $rakcoins. ' <img src="images/rakcoin.svg" class="rakcoinImage"> Rakcoiny!';
+		}
+		else{
+			return $rakcoins. ' <img src="images/rakcoin.svg" class="rakcoinImage"> Rakcoinów!';
+		}
+	}
+}
+
 function giverakcoins($userid, $amount)
 {
 	if(!is_int($userid)||!is_int($amount)) return;

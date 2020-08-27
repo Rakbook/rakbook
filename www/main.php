@@ -22,11 +22,8 @@ require_once('userinfo.php');
   <div class="container">
     <?php require('topbar.php') ?>
     <div class="content">
-
       <div class="hello"> Witaj <?php echo getusersformattedname($_SESSION['userid']); ?>!</div>
-			<div class="headline">
-        Masz <?php echo getusersrakcoins($_SESSION['userid']); ?> <img src="images/rakcoin.svg" class="rakcoinImage"> Rakcoinów!
-      </div>
+			<div class="headline">Masz <?php echo getstyledrakcoins(getusersrakcoins($_SESSION['userid'])); ?></div>
 
 			<!-- here you can put some announcements, example below -->
 			<div class="headline"> Dołącz na <a href="https://discord.gg/uCXf2hE">Klasowego discorda!</a></div>

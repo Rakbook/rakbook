@@ -75,9 +75,7 @@ if(isset($_POST['coloridtobuy']))
     <div class="content">
 
         <div class="hello"> Witaj w sklepie z kolorkami <?php echo getusersformattedname($_SESSION['userid']); ?>!</div>
-			<div class="headline">
-        Masz <?php echo getusersrakcoins($_SESSION['userid']); ?> <img src="images/rakcoin.svg" class="rakcoinImage"> Rakcoinów!
-        </div><br>
+			<div class="headline"> Masz <?php echo getstyledrakcoins(getusersrakcoins($_SESSION['userid'])); ?> </div><br>
 
     <?php
         if(isset($buymessage))
