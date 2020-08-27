@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: Run push mirror script
       env:
-        INPUT_SRC_REPO: git@github.com:Rakbook/Rakbook.git
+        INPUT_SRC_REPO: git@github.com:Rakbook/rakbook.git
         INPUT_PRIVATE_KEY : ${{ secrets.RAKBOOK_SSH_KEY }}
         INPUT_DST_REPO: git@rakbook.pl:rakbook
       run: |
