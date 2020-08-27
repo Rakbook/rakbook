@@ -26,7 +26,7 @@ require_once('userinfo.php');
       <div class="changelogContainer">
         <p class="changelogHeader"> &nbsp; changelog </p>
         <div class="changelog">
-            <span>• 27.08.20 - Rakbook jest teraz open-source - nasze <a href="https://github.com/Rakbook/rakbook">repozytorium</a></span>
+            <span>• 27.08.20 - Rakbook jest teraz open-source! Nasze <a href="https://github.com/Rakbook/rakbook">repozytorium</a></span>
 						<span>• 27.08.20 - Rework strony z cytatami.</span>
 						<span>• 20.08.20 - Wsparcie dla drag and drop przy dodawaniu mema.</span>
 						<span>• 15.08.20 - Nowe GUI dla dyżurnych.</span>

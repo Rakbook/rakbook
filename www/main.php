@@ -34,8 +34,8 @@ require_once('userinfo.php');
 				<div class="changelog">
 						<!-- here you should put two most recent changes -->
 						<!-- add them also to changelog.php, example below -->
+						<span>• 27.08.20 - Rakbook jest teraz open-source! - nasze <a href="https://github.com/Rakbook/rakbook">repozytorium</a></span>
 						<span>• 27.08.20 - Rework strony z cytatami.</span>
-						<span>• 20.08.20 - Wsparcie dla drag and drop przy dodawaniu mema.</span>
 						<span style="margin: 6px; text-align: center;"><a href="changelog.php">Sprawdź wszystkie zmiany</a></span>
 			</div></div>
     </div>
