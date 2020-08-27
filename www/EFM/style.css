@@ -1,0 +1,99 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Yatra One', cursive;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.canvasbox
+{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.box
+{
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 450px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.box2
+{
+  margin-right: auto;
+  margin-left: auto;
+  width: 350px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+input
+{
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color:  #eeeeee;
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  margin: 0;
+
+}
+
+h1
+{
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+p
+{
+  margin: 0;
+  text-align: center;
+}
+
+.arrow
+{
+  border-radius: 5px;
+  border: 1px solid grey;
+  text-align: center;
+  background-color: #eeeeee;
+  height: 26px;
+  width: 26px;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Yatra One', cursive;
+}
+
+.generate
+{
+  border-radius: 5px;
+  border: 1px solid grey;
+  text-align: center;
+  background-color: #eeeeee;
+  height: 26px;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Yatra One', cursive;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.arrow:hover
+{
+  background-color: #dddddd;
+}

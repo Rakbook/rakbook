@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>API</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<h1>Dokumentacja API Rakbooka</h1>
+
+<p>
+	Wysyłanie żądań do API Rakbooka odbywa się za pomocą HTTP<br>
+	Pliki php obsługujące zapytania do API znajdują się w katalogu wskazywanym przez subdomenę api.rakbook.pl<br>
+	Podczas obsługiwania każdego zapytania oprócz podanych błędów może wystąpić wewnętrzny błąd serwera sygnalizowany odpowiedzią z kodem 500<br>
+</p>
+<h2>Uwierzytelnianie</h2>
+<p>
+	Większość zapytań do API wymaga przesłania aktualnego tokenu dostępu (token jest również ważnym ciasteczkiem zapamiętaj mnie)
+	w nagłówku <span style="font-weight: bold">token</span> zapytania<br>
+	<br>
+	Aby uzyskać token trzeba wysłać zapytanie POST do pliku <span style="font-weight: bold">auth.php</span>,
+	dane logowania muszą być przesłane jako application/x-www-form-urlencoded,<br>login w parametrze <span style="font-weight: bold">login</span>,
+	a hasło w parametrze <span style="font-weight: bold">password</span>,<br>
+	w opcjonalnym parametrze <span style="font-weight: bold">time</span>
+	może znaleźć się czas w sekundach określający czas ważności tokenu (maksymalnie tydzień, domyślnie 10 sekund)<br>
+	W przypadku zakończonego sukcesem uwierzytelnienia zwrócona zostanie odpowiedź z kodem 200 zawierająca token uwierzytelniający<br>
+	W przypadku nieudanego uwierzytelnienia zwrócona zostanie odpowiedź z kodem 403 zawierająca jedną z poniższych wiadomości<br>
+	<ul>
+		<li>Użytkownik nie został aktywowany - kiedy użytkownik nie został aktywowany</li>
+		<li>Taka kombinacja danych logowania nie istnieje w bazie danych - jeśli taka kombinacja danych logowania nie istnieje w bazie danych</li>
+	</ul><br>
+	W celu przedłużenia ważności tokenu należy wysłać zapytanie GET i umieścić token w nagłówku <span style="font-weight: bold">token</span> zapytania<br>
+	Przesłany token zostanie unieważniony, a w odpowiedzi z kodem 200 wysłany zostanie nowy token<br>
+	Jeśli token jest nieaktualny zostanie wysłana odpowiedź z kodem 403 o treści <span style="font-weight: bold">token invalid</span><br>
+	<br>
+	Po zakończeniu korzystania z tokenu jeśli jego czas ważności się nie skończył i nie zamierza się go wykorzystywać w przyszłości
+	zalecane jest wykonanie zapytania GET z pustym parametrem <span style="font-weight: bold">logout</span>
+	umieszczając token w nagłówku <span style="font-weight: bold">token</span> zapytania<br>
+	W przypadku zakończonego sukcesem wylogowania zostanie wysłana odpowiedź z kodem 204<br>
+	Jeśli token nie zostanie umieszczony w nagłówku <span style="font-weight: bold">token</span>
+	zostanie wysłana odpowiedź <span style="font-weight: bold">token required</span> z kodem 400
+	Jeśli token jest nieważny zostanie wysłana odpowiedź z kodem 403 o treści <span style="font-weight: bold">token invalid</span><br>
+	<br>
+	Jeśli nie wszystkie wymagane dane zostaną przesłane zostanie wysłana odpowiedź
+	<span style="font-weight: bold">wtf are you trying to do?</span> z kodem 400<br>
+	<br>
+	Aby sprwadzić, czy token jest ważny należy wysłać zapytanie GET do pliku <span style="font-weight: bold">valid.php</span>
+	umieszczając token w nagłówku <span style="font-weight: bold">token</span> zapytania<br>
+	W odpowiedzi z kodem 200 zostanie wysłane id użytkownika, jeśli id jest równe 0 oznacza to, że token jest nieważny
+</p>
+
+<h2>Rejestracja nowego użytkownika</h2>
+<p>
+	Za operacje na użytkownikach odpowiedzialny jest plik <span style="font-weight: bold">user.php</span><br>
+	<br>
+	Aby zarejestrować nowego użytkownika należy wysłać dane logowania zapytaniem POST jako application/x-www-form-urlencoded<br>
+	login w parametrze <span style="font-weight: bold">login</span>,
+	hasło w parametrze <span style="font-weight: bold">password</span>,
+	a numer w dzienniku w parametrze <span style="font-weight: bold">nr</span><br>
+	W przypadku udanej rejestracji zostanie wysłana odpowiedź z kodem 204<br>
+	Jeśli dane nie są poprawne zostanie wysłana odpowiedź z kodem 422 <span style="font-weight: bold">registration data incorrect</span>
+	lub <span style="font-weight: bold">not all registration parameters present</span><br>
+	W innym wypadku zostanie wysłana jedna z poniższych odpowiedzi z kodem 409<br>
+	<ul>
+		<li>login jest zajęty</li>
+		<li>login musi mieć od {minimalna liczba znaków} do {maksymalna liczba znaków} znaków</li>
+		<li>podaj prawidłowy numer w dzienniku</li>
+		<li>numer w dzienniku jest zajęty</li>
+		<li>hasło musi mieć co najmniej {minimalna liczba znaków} znaków</li>
+	</ul>
+	
+</p>
+<p>
+	<h1>Wszystkie opisane niżej operacje wymagają podania tokenu w nagłówku <span style="font-weight: bold">token</span> zapytania</h1>
+	Jeśli token nie zostanie podany, z kodem 403 zostanie zwrócona jedna z poniższych odpowiedzi<br>
+	<ul>
+		<li>Authtoken required - kiedy nie podano tokenu</li>
+		<li>Authtoken invalid - jeśli token jest nieważny</li>
+	</ul><br>
+	Alternatywnie zamiast tokenu można wysłać login i hasło zgodnie z <a href="https://tools.ietf.org/html/rfc7617#section-2">RFC 7617 sekcja druga</a>
+	przy czym w przypadku braku danych logowania nie zostanie wysłana odpowiedź z kodem 401
+	gdyż używanie tokenów jak opisano wyżej jest zalecane (i wymagane w przypadku kiedy w nazwie uzytkownika znajduje sie dwukropek).
+</p>
+<h2>Operacje na użytkownikach</h2>
+<p>
+	Za operacje na użytkownikach odpowiedzialny jest plik <span style="font-weight: bold">user.php</span><br>
+	<br>
+	Aby uzyskać informacje o uzytkowniku do którego przypisany jest token, należy wysłać zapytanie GET<br>
+	W odpowiedzi z kodem 200 zostanie wysłany obiekt json z polami<br>
+	<ul>
+		<li>id - liczba - id użytkownika</li>
+		<li>name - string - nazwa użytkownika</li>
+		<li>color - liczba - id stylizacji nazwy użytkownika</li>
+		<li>nr_dziennik - liczba - numer w dzienniku</li>
+		<li>activated - liczba - czy aktywowany</li>
+		<li>isAdmin - liczba - czy admin</li>
+		<li>isRedaktor - liczba - czy redaktor</li>
+		<li>RakCoins - liczba - liczba posiadanych RakCoinów</li>
+	</ul><br>
+	<br>
+	Aby uzyskać informację o dowolnym użytkowniku należy wysłać zapytanie GET z parametrem id<br>
+	Jeśli taki użytkownik zostanie odnaleziony zostanie wysłana odpowiedź z kodem 200 zawierajaca obiekt json<br>
+	jeśli użytkownik powiązany z tokenem ma uprawnienia dostępu do danych tego użytkownika
+	(jest administratorem lub jest tym użytkownikiem) format jest jak wyżej<br>
+	W przeciwnym przypadku obecne będą tylko pola id, name oraz color<br>
+	Jeśli użytkownik nie zostanie odnaleziony zostanie wysłana odpowiedź z kodem 404 <span style="font-weight: bold">user not found</span><br>
+	<br>
+	Aby uzyskać informację o wielu użytkownikach naraz należy wysłać zapytanie GET z parametrem id będącym tablicą (id[]=id1&amp;id[]=id2&amp;id[]=id3)
+	zawierającą id żądanych użytkowników<br>
+	w odpowiedzi z kodem 200 zostanie wysłana tablica w formacie json zawierająca obiekty opisujące znalezionych użytkowników
+	(możliwa jest pusta tablica) jak wyjaśniono wyżej<br>
+	Kolejność użytkowników jest taka jak w parametrze id zapytania<br>
+	<br>
+	Używając pliku user.php administratorzy mogą zmieniać uprawnienia (isAdmin oraz isRedakor) i stan aktywacji (activated) użytkowników<br>
+	W tym celu należy wysłać w zapytaniu POST w formacie json tablicę obiektów lub pojedynczy obiekt
+	zawierający pole <span style="font-weight: bold">id</span> oraz pola, które chce się zmodyfikować opisane w powyższej linijce w nawiasach, podając wartość numerycznie (0 to fałsz 1 to prawda)<br>
+	<br>
+	Może zostać odesłana odpowiedź <span style="font-weight: bold">wtf are you trying to do?</span> z kodem 400
+</p>
+<h2>Stylizacja nazw</h2>
+<p>
+	Zapytanie GET do pliku color.php zwróci z kodem 200 tablicę json z obiektami zawerającymi pola
+	<ul>
+		<li>id - id stylizacji</li>
+		<li>hex - szesnastkowa reprezentacja koloru w formacie #RRGGBB może być null</li>
+	</ul>
+</p>
+<h2>Nodzu</h2>
+<p>
+	Zapytanie GET do pliku nodzu.php zwróci z kodem 200 tablicę json z obiektami zawerającymi pola
+	<ul>
+		<li>name - nazwa cytatu Nodza</li>
+		<li>audiofile - URI pliku audio</li>
+	</ul>
+</p>
+<h2>Support &amp; Credits</h2>
+<p>
+	Zapytanie GET do pliku getsupporttext.php zwróci z kodem 200 tekst strony supportu zawierający znaczniki html, ale nie będący pełnoprawną stroną
+</p>
+<h2>Cytaty</h2>
+<p>
+	Za cytaty odpowiedzialny jest plik <span style="font-weight: bold">quote.php</span><br>
+	<br>
+	Wysłanie zapytania GET zwróci z kodem 200 tablicę json zawierającą obiekty z polami<br>
+	<ul>
+		<li>id - id cytatu</li>
+		<li>author - autor cytatu</li>
+		<li>quote - treść cytatu</li>
+		<li>rating - całkowita ocena cytatu</li>
+	</ul><br>
+	<br>
+	Aby wysłać nowy cytat należy wysłać dane cytatu zapytaniem POST jako application/x-www-form-urlencoded<br>
+	cytat w parametrze <span style="font-weight: bold">quote</span>,
+	autor w parametrze <span style="font-weight: bold">author</span><br>
+	W przypadku zakończonego sukcesem dodania cytatów zwrócona zostanie odpowiedź z kodem 204<br>
+	Jeśli co najmniej jeden z parametrów nie zostanie wysłany zwrócona zostanie odpowiedź
+	z kodem 400 <span style="font-weight: bold">quote and author must be sent</span>
+</p>
+<h2>Notatki</h2>
+<p>
+	Za notatki odpowiedzialny jest plik <span style="font-weight: bold">note.php</span><br>
+	<br>
+	Wysłanie zapytania GET zwróci z kodem 200 tablicę json zawierającą id notatek użytkownika (może być pusta)<br>
+	<br>
+	Wysłanie zapytania GET z parametrem id zawierającym id notatki zwróci z kodem 200 obiekt json zawierający pola
+	<ul>
+		<li>id - id notatki</li>
+		<li>title - tytuł notatki</li>
+		<li>content - zawartość notatki</li>
+	</ul><br>
+	Jeśli notatka nie zostanie odnaleziona zostanie wysłana odpowiedź z kodem 404 <span style="font-weight: bold">note not found</span><br>
+	Jeśli notatka nie należy do użytkownika zostanie wysłana odpowiedź
+	z kodem 403 <span style="font-weight: bold">you do not have permission to read this note</span><br>
+	<br>
+	Aby wysłać nową notatkę należy wysłać dane notatki zapytaniem POST jako application/x-www-form-urlencoded<br>
+	tytuł w parametrze <span style="font-weight: bold">title</span>,
+	zawartość w parametrze <span style="font-weight: bold">note</span><br>
+	W przypadku zakończonego sukcesem dodania notatki zwrócona zostanie odpowiedź z kodem 200 zawierająca id dodanej notatki<br>
+	Jeśli co najmniej jeden z parametrów nie zostanie wysłany zwrócona zostanie odpowiedź
+	z kodem 400 <span style="font-weight: bold">wtf are you trying to do?</span><br>
+	<br>
+	Aby edytować notatkę należy wysłać zapytanie POST z parametrem id zawierającym id notatki
+	oraz conajmniej jeden z parametrów <span style="font-weight: bold">title</span> lub <span style="font-weight: bold">note</span><br>
+	Jeśli notatka nie należy do uzytkownika zostanie wysłana odpowiedź
+	z kodem 403 <span style="font-weight: bold">you do not have permission to edit this note</span><br>
+	Jeśli wymagane parametry nie zostaną przesłane zostanie odesłana odpowiedź <span style="font-weight: bold">wtf are you trying to do?</span> z kodem 400
+</p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* @import "myFractalColours.css"; */
+/* + add ids to all fractalBoxes for the script above to work */
+
+html, body {
+  overflow-y: auto;
+}
+
+.myFractal {
+  display: grid;
+  grid-template-columns: [margin-left] 8% [first] 15% [text-left] 45% [centre] auto [text-right] 15% [last] 8% [margin-right];
+  grid-template-rows: [margin-up] 30px [first] 150px [second] auto [third] auto [last] 20px [margin-bottom];
+
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  z-index: 0;
+
+  font-size: 20px;
+}
+
+/* background */
+.Slide {
+  grid-column: margin-left / margin-right;
+  grid-row: margin-up / margin-bottom;
+  z-index: 1;
+}
+.fractalBox {
+  grid-column: first / last;
+  grid-row: first / last;
+  z-index: 1;
+}
+
+.title {
+  grid-column: first / last;
+  grid-row: first / second;
+  z-index: 2;
+}
+
+.mainCanvas {
+  grid-column: first / centre;
+  grid-row: second / third;
+  z-index: 2;
+}
+#canvas {
+  border: 1px solid white;
+}
+.canvas_4 {
+  /* unfortunately making it responsive does not work, because script fails to read the actual canvas size and scrolling crashes */
+  width: auto;
+  height: auto;
+}
+.canvas_5 {
+  width: 50%;
+  height: auto;
+}
+
+
+.buttons {
+  grid-column: centre / last;
+  grid-row: second / third;
+  z-index: 2;
+
+  text-align: left;
+}
+
+
+.description {
+  grid-column: text-left / text-right;
+  grid-row: third / last;
+  z-index: 2;
+}
+
+.buttonDescripion {
+  font-size: 15px;
+}
+
+.buttons_settings {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+
+.sobgo-value {
+  background-color: #2479CC;
+  color: white;
+  border: 3px solid #2479CC;
+  width: 30px;
+  text-align: right;
+}
+.sobgo-heading {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,37 @@
+
+.reactionbutton
+{
+	cursor: pointer;
+	padding: 0;
+	border: none;
+	background-size: 100% 100%;
+	width: 64px;
+	height: 64px;
+}
+
+.reactionbutton:hover
+{
+	filter: brightness(80%);
+}
+
+
+
+.likebutton[data-reactionval="1"]
+{
+	background: url("like-grey.png") no-repeat;
+}
+
+.likebutton[data-reactionval="0"]
+{
+	background: url("like-red.png") no-repeat;
+}
+
+.dislikebutton[data-reactionval="-1"]
+{
+	background: url("dislike-grey.png") no-repeat;
+}
+
+.dislikebutton[data-reactionval="0"]
+{
+	background: url("dislike-red.png") no-repeat;
+}

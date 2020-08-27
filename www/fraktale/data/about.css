@@ -1,0 +1,37 @@
+.content {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 20px 100px auto auto auto auto auto 40px;
+
+  text-align: justify;
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 20px;
+
+  background-color: #78a3cc;
+}
+
+.content section:nth-child(1) {
+  grid-row: 3 / 4;
+}
+.content section:nth-child(2) {
+  grid-row: 4 / 5;
+}
+.content section:nth-child(3) {
+  grid-row: 5 / 6;
+}
+.content section:nth-child(4) {
+  grid-row: 6 / 7;
+}
+.content section:nth-child(5) {
+  grid-row: 7 / 8;
+}
+
+.infoSection {
+  margin-top: 20px;
+  grid-column: 2 / 3;
+}
+
+.infoData {
+  margin-bottom: 10px;
+}

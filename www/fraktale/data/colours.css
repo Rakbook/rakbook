@@ -1,0 +1,300 @@
+:root {
+  --dark-blue: #123d66;
+  --blue: #2479cc;
+  --light-blue: #78a3cc;
+  --dark-red: #661212;
+  --red: #cc2425;
+  --sea: #73d4db;
+}
+
+
+/* buttons on the home page */
+#button-2 {
+  background-color: var(--red);
+  border: 2px solid var(--red);
+}
+#button-2:hover {
+  background-color: var(--dark-red);
+}
+
+#button-2 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-2:hover {
+  background-color: var(--blue);
+}
+
+#button-3 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-3:hover {
+  background-color: var(--light-blue);
+}
+/*
+#button-4 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-4:hover {
+  background-color: var(--blue);
+}
+
+#button-5 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-5:hover {
+  background-color: var(--light-blue);
+}
+
+#button-6 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-6:hover {
+  background-color: var(--sea);
+}
+
+#button-7 {
+  background-color: var(--sea);
+  border: 2px solid var(--sea);
+}
+#button-7:hover {
+  background-color: var(--light-blue);
+}
+
+#button-8 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-8:hover {
+  background-color: var(--blue);
+}
+
+#button-9 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-9:hover {
+  background-color: var(--dark-blue);
+}
+
+#button-10 {
+  background-color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+#button-10:hover {
+  background-color: var(--blue);
+}
+
+#button-11 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-11:hover {
+  background-color: var(--light-blue);
+}
+
+#button-12 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-12:hover {
+  background-color: var(--sea);
+}
+
+#button-13 {
+  background-color: var(--sea);
+  border: 2px solid var(--sea);
+}
+#button-13:hover {
+  background-color: var(--light-blue);
+}
+
+#button-14 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-14:hover {
+  background-color: var(--blue);
+}
+
+#button-15 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-15:hover {
+  background-color: var(--dark-blue);
+}
+
+#button-16 {
+  background-color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+#button-16:hover {
+  background-color: var(--blue);
+}
+
+#button-17 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-17:hover {
+  background-color: var(--light-blue);
+}
+
+#button-18 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-18:hover {
+  background-color: var(--sea);
+}
+
+#button-19 {
+  background-color: var(--sea);
+  border: 2px solid var(--sea);
+}
+#button-19:hover {
+  background-color: var(--light-blue);
+}
+
+#button-20 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-20:hover {
+  background-color: var(--blue);
+}
+
+#button-21 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-21:hover {
+  background-color: var(--dark-blue);
+}
+
+#button-22 {
+  background-color: var(--dark-blue);
+  border: 2px solid var(--dark-blue);
+}
+#button-22:hover {
+  background-color: var(--blue);
+}
+
+#button-23 {
+  background-color: var(--blue);
+  border: 2px solid var(--blue);
+}
+#button-23:hover {
+  background-color: var(--light-blue);
+}
+
+#button-24 {
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+}
+#button-24:hover {
+  background-color: var(--sea);
+} */
+
+/* each slide's gradient */
+
+.Slide_1  {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_2 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--light-blue) 80%);
+}
+
+.Slide_3 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+/* .Slide_4 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--light-blue) 80%);
+}
+
+.Slide_5 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_6 {
+  background-image: linear-gradient(0deg, var(--sea) 0%, var(--light-blue) 80%);
+}
+
+.Slide_7 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--sea) 80%);
+}
+
+.Slide_8 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--light-blue) 80%);
+}
+
+.Slide_9 {
+  background-image: linear-gradient(0deg, var(--dark-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_10 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--dark-blue) 80%);
+}
+
+.Slide_11 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_12 {
+  background-image: linear-gradient(0deg, var(--sea) 0%, var(--light-blue) 80%);
+}
+
+.Slide_13 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--sea) 80%);
+}
+
+.Slide_14 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--light-blue) 80%);
+}
+
+.Slide_15 {
+  background-image: linear-gradient(0deg, var(--dark-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_16 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--dark-blue) 80%);
+}
+
+.Slide_17 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_18 {
+  background-image: linear-gradient(0deg, var(--sea) 0%, var(--light-blue) 80%);
+}
+
+.Slide_19 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--sea) 80%);
+}
+
+.Slide_20 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--light-blue) 80%);
+}
+
+.Slide_21 {
+  background-image: linear-gradient(0deg, var(--dark-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_22 {
+  background-image: linear-gradient(0deg, var(--blue) 0%, var(--dark-blue) 80%);
+}
+
+.Slide_23 {
+  background-image: linear-gradient(0deg, var(--light-blue) 0%, var(--blue) 80%);
+}
+
+.Slide_24 {
+  background-image: linear-gradient(0deg, var(--sea) 0%, var(--light-blue) 80%);
+} */

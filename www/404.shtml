@@ -1,0 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+	<link rel="stylesheet" type="text/css" href="Style.css"><HEAD>
+<TITLE>404 Nie znaleziono</TITLE>
+<meta charset="utf-8"/>
+</HEAD><BODY>
+<H1>Nie znaleziono</H1>
+Żądany URL <!--#echo var="REQUEST_URI" --> nie został znaleziony na serwerze.
+<p>Nie kombinuj dziubeczku!</p>
+<HR>
+<I><!--#echo var="HTTP_HOST" --></I>
+</BODY></HTML>

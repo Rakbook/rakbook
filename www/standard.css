@@ -1,0 +1,54 @@
+
+/* classes used by all pages i.e. used by template.php */
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  background-color: #131218;
+  color: #FFFFFF;
+}
+
+a {
+  color: #7aa9f9;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+.hello /* big font title */
+{
+  text-align: center;
+  font-size: 40px;
+  color: #FFFFFF;
+  margin-top: 100px;
+}
+
+.headline /* medium font title */
+{
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.container /* div which contains everything */
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.content /* .content of the page, usually .container - topbar */
+{
+  width: 100%;
+  margin-top: 64px;
+}
+
+.rakcoinImage
+{
+  width: auto;
+  height: 0.8em;
+}

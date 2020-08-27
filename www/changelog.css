@@ -1,0 +1,36 @@
+.changelog {
+  border-bottom: dashed 1px white;
+  border-top: dashed 1px white;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.changelogContainerMain {
+  width: 90vw;
+  max-width: 400px;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+}
+
+.changelogContainer {
+  width: 90vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.changelogHeader {
+  text-align: left;
+  margin: 0;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Martel:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="data/styles.css">
+    <link rel="stylesheet" href="data/myFractal.css">
+    <script src="./fractalScripts/scriptJuda.js"></script>
+	<script src="./fractalScripts/scriptMovableCanvas.js"></script>
+    <title>Mikołaj Juda</title>
+</head>
+<body>
+  <div class="upperMargin">
+  </div>
+  <div class="header">
+    <ul>
+      <!-- Home page -->
+      <li><a href="index.html">Home</a></li>
+      <!-- Overview of fractals by Marta HZ -->
+      <li><a href="WhatIsFractal.html">Co to fraktal?</a></li>
+      <!-- MyFractal School Project -->
+      <li><a href="myFractalmain.html">MójFraktal</a></li>
+      <!-- Licensing stuff and contributions -->
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div class="myFractal">
+    <div class="Slide_2 Slide"></div>
+    <div class="fractalBox"></div>
+    <div class="title">
+      <h1 class="heading">Fraktal</h1>
+      <h2 class="subHeading"> Mikołaj Juda </h2>
+    </div>
+    <div class="mainCanvas">
+      <canvas class="canvas_4" id="canvas" width="800" height="400"></canvas>
+    </div>
+    <div class="buttons">
+      <div class="buttons_settings">
+        Ustawienia
+      </div>
+      <div class="">
+        <p> ilość kół na połowie <br> <input type="number" id="circles" value="1"> </p>
+        <p> kolor początkowy <br> <input type="number" id="initial_color" value="0"> </p>
+        <p> zmiana koloru <br> <input type="number" id="color_change" value="1"> </p>
+      </div>
+
+      <div id="buttons">
+      	<button class="button" id="button-3" onclick="startNormal()">rysuj</button><br>
+      </div>
+    </div>
+    <div class="description">
+      <p>
+        Na podstawie początkowego odcinka (równoległego do pionowej krawędzi okna i wypełniającego dużą część pionowej przestrzeni) tworzone jest koło
+        o nadanym początkowym kolorze.
+      </p>
+      <p>
+        W zależności od żądanej ilości kół <span style="font-style: italic;">n</span> na jednej połowie, każda połowa jest dzielona na
+        <span style="font-style: italic;">2n+1</span> łuków o równych długościach.
+      </p>
+      <p>
+        Łuki w bezpośredniej bliskości linii symetrii, którą jest podany odcinek będący jednocześnie średnicą okręgu, nie są zasłaniane kolejnymi częściami fraktalu.
+      </p>
+      <p>
+        Cięciwy łączące końce co drugiego z pozostałych łuków są wykorzystywane jako średnica kolejnych części fraktalu.
+      </p>
+      <p>
+        Kolor kół jest determinowany przez dwa parametry, kolor początkowy i szybkość zmiany koloru.
+      </p>
+      <p>
+        Kolor jest reprezntowany jako liczba z zakresu od 0 do 15 gdzie 0 to czarny, 15 to biały.
+      </p>
+      <p>
+        Każda kolejna część zyskuje kolor będący sumą koloru poprzedniej części i zmiany koloru.
+      </p>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+  	doAllJuda();
+  </script>
+</body>
+</html>

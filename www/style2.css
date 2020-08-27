@@ -1,0 +1,86 @@
+body {
+  background-color: #131218;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+input {
+  width: 25vh;
+  height: 2.6vh;
+  font-size: 2vh;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: #7aa9f9;
+  text-decoration: none;
+}
+
+.submit {
+  width: 15vh;
+  height: 3.2vh;
+
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 1.6vh;
+  color: #131218;
+
+  border: 2px solid grey;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.submit:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: 35fr 70fr 10fr 20fr;
+  grid-template-columns: 10fr 50fr 10fr;
+  grid-template-areas:
+  "header header header"
+  ". login ."
+  ". . ."
+  "info info info";
+
+  height: 95vh;
+}
+
+.header {
+  grid-area: header;
+  place-self: center;
+
+  font-size: 10vh;
+  font-weight: bold;
+}
+
+.login {
+  grid-area: login;
+  place-self: stretch center;
+
+  display: grid;
+  grid-template-rows: 30fr 13fr 13fr 10fr 10fr 15fr 15fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5px;
+  place-items: center;
+
+  width: 47vh;
+  background-color: #293251;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-size: 2.7vh;
+}
+
+.login-sign-up {
+  font-size: 2vh;
+}
+
+.info {
+  grid-area: info;
+
+  font-size: 2.5vh;
+  text-align: center;
+}

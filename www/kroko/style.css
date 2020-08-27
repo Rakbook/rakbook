@@ -1,0 +1,62 @@
+html {
+  font-family: 'VT323', monospace;
+  font-size: 30px;
+  background-color: PaleGreen;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  font-size: 30px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.reszta {
+  margin-left: 25%;
+  padding: 20px;
+}
+
+#main {
+  float: right;
+  width: 50%;
+}
+
+h1 {
+  font-size: 70px;
+  margin-top: 10px;
+}
+.nic
+{
+  background-color: PaleGreen;
+}
+.galeria
+{
+  
+  width: 70%;
+}

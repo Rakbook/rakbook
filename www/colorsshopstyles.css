@@ -1,0 +1,132 @@
+body {
+	font-size: 16px;
+}
+
+td {
+	padding-left: 3px;
+	padding-top: 3px;
+}
+tr {
+	margin-top: 10px;
+}
+
+th {
+	border-bottom: solid 1px white;
+}
+
+.price {
+	color: gold;
+}
+
+.buybutton {
+	padding: 0;
+	color: white;
+	cursor: pointer;
+	border: none;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: #555555;
+	min-width:110px;
+	border: solid 2px #797D7F;
+	height: 35px;
+
+}
+
+.buybutton:hover {
+	background-color: #666666;
+}
+
+.tabela {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 25px;
+}
+
+.name {
+	text-align: left;
+	padding: 0;
+	padding-left: 0px;
+	padding-right: 5px;
+	width:100px;
+	max-width: 100px;
+}
+
+.buy {
+	display: flex;
+	justify-content: center;
+	padding-right: 0px;
+	padding-left: 5px;
+}
+
+.styl {
+	width: 100px;
+	max-width: 100px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.selected {
+	color: white;
+	cursor: pointer;
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: #293251;
+	min-width:110px;
+	border: solid 2px #34495E;
+	height: 35px;
+}
+
+.podkresl {
+	height: 15px;
+	border-bottom: solid 1px white;
+	font-weight: bold;
+}
+
+.redButton {
+	background-color: #E74C3C;
+	cursor: pointer;
+	min-width:80px;
+	border: solid 2px #C0392B;
+	height: 35px;
+	color: white;
+	font-weight: bold;
+}
+
+.greenButton {
+	background-color: #229954;
+	cursor: pointer;
+	min-width:80px;
+	border: solid 2px #1D8348;
+	height: 35px;
+	color: white;
+	font-weight: bold;
+}
+
+.grayButton {
+	color: white;
+	cursor: pointer;
+	background-color: #A6ACAF;
+	min-width:80px;
+	border: solid 2px #707B7C;
+	height: 35px;
+	font-weight: bold;
+}
+
+.redButton:hover {
+	background-color: #F06658;
+}
+
+.greenButton:hover {
+	background-color: #3DC174;
+}
+
+.grayButton:hover {
+	background-color: #839192;
+}

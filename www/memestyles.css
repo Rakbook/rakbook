@@ -1,0 +1,47 @@
+@import url("likestyles.css");
+
+.meme
+{
+	border-bottom: 5px dashed #666666;
+    padding-bottom: 10px;
+}
+
+.meme > img
+{
+	max-width: 80vw;
+  	max-height: 80vh;
+}
+
+
+#normalmemeslink, #ponadczasowememeslink
+{
+    cursor: pointer;
+	border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#normalmemeslink
+{
+    color: white;
+	
+	background-color: #555555;
+}
+
+#normalmemeslink:hover
+{
+    background-color: #666666;
+}
+
+#ponadczasowememeslink
+{
+    color: black;
+	background-color: gold;
+}
+
+#ponadczasowememeslink:hover
+{
+    background-color: goldenrod;
+}

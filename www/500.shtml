@@ -1,0 +1,10 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>500 Wewnętrzny błąd serwera</TITLE>
+<meta charset="utf-8"/>
+</HEAD><BODY>
+<H1>Wewnętrzny błąd serwera</H1>
+Serwer się spierdolił i nic nie możesz z tym zrobić.
+<HR>
+<I><!--#echo var="HTTP_HOST" --></I>
+</BODY></HTML>

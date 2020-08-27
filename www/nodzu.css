@@ -1,0 +1,127 @@
+.slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: DarkBlue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: DarkBlue;
+  cursor: pointer;
+}
+
+.streszczeniee {
+  width: 90%;
+  height: 500px;
+  margin: 20px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+.komp {
+  background-color: #293251;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.listanodzu {
+  columns: 1;
+}
+
+.nodzubutton {
+  width: 200px;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: LightGrey;
+  color: black;
+  border: 2px solid Grey;
+  border-radius: 4px;
+}
+
+@media only screen and (min-width: 800px) {
+  .listanodzu
+  {
+    columns: 2;
+    margin-left: 20%;
+    margin-right: 20%;
+
+  }
+
+  .streszczeniee {
+    width: 60%;
+  }
+
+  .slider {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 1350px) {
+  .listanodzu {
+    columns: 4;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .streszczeniee {
+    width: 30%;
+  }
+
+  .slider {
+    width: 50%;
+  }
+}
+
+.supernodzu {
+  height: 50px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: FireBrick;
+  color: white;
+  border: 2px solid DarkRed;
+  border-radius: 4px;
+}

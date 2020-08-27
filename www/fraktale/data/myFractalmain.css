@@ -1,0 +1,77 @@
+body, html {
+  overflow-y: auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 20px 100px auto auto auto auto auto 40px;
+
+  text-align: justify;
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 20px;
+
+  background-image: linear-gradient(0deg, #78a3cc 0%, #4b8fd1 80%);
+}
+
+.headerSection {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.fractals {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.fractal {
+  display: inline-grid;
+  background-color: #93b0cc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  margin-left: 12px;
+  margin-right: 12px;
+
+  text-decoration: none;
+}
+
+#franekFractal {
+  width: 30%;
+}
+
+.fractalImage {
+  height: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.4s;
+}
+
+.rectangle {
+  width: 500px;
+  height: auto;
+}
+
+.fractalImage:hover {
+  filter: brightness(0.3);
+}
+
+.author {
+  margin-top: 5px;
+  color: white;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 20px;
+}
+
+.line {
+  height: 1px;
+  background-color: white;
+  border: none;
+}

@@ -1,0 +1,203 @@
+html
+{
+	min-height: 100vh;
+}
+
+body
+{
+	background-color: #F5F1F2;
+	color: #303030;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	margin: 0;
+}
+
+h1
+{
+	padding-top: 25px;
+	margin-top: 0;
+	font-size: 50px;
+	color: #303030;
+	font-family: 'Tomorrow';
+}
+
+h2
+{
+	font-size: 32px;
+	text-align: center;
+	margin: 0;
+}
+
+h3
+{
+	font-size: 24px;
+	text-align: center;
+	padding-bottom: 24px;
+	padding-top: 24px;
+}
+
+a
+{
+	text-decoration: none;
+	color: #0E1111;
+	cursor: pointer;
+}
+
+.Topbar
+{
+	width: 100vw;
+	height: 100px;
+	background-color: #FF3030;
+	background: radial-gradient(circle, rgba(255,165,24,1) 4%, rgba(235,76,128,1) 85%);
+	border-bottom: 4px solid #303030;
+	text-align: center;
+	position: fixed;
+	top: 0;
+	overflow: hidden;
+}
+
+.Content
+{
+	margin-top: 154px;
+}
+
+.TopPanel
+{
+	margin-bottom: 50px;
+}
+
+.Info
+{
+	width: 60vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	margin-top: 250px;
+}
+
+.Button
+{
+	width: 200px;
+	height: 50px;
+	font-size: 32px;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	color: #303030;
+	background-color: #F5F1F2;
+	border: 2px solid #303030;
+}
+
+.Button:hover
+{
+	background-color: #ABABAB;
+}
+
+.SelectionBox
+{
+	width: 200px;
+	height: 50px;
+	font-size: 32px;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+	color: #303030;
+	background-color: #F5F1F2;
+	border: 2px solid #303030;
+}
+
+.Image
+{
+	width:30vw;
+	border: 0.25vw solid #303030;
+	margin-bottom: 25px;
+}
+
+#ComparisonTable
+{
+	width: 45vw;
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.ComparisonTableCell
+{
+	width: 15vw;
+	border: 0.125vw solid #303030;
+	overflow: hidden;
+	background-color: #F5F1F2;
+}
+
+#InformationTable
+{
+	width: 40vw;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.InformationTableCell
+{
+	width: 20vw;
+	border: 0.125vw solid #303030;
+	overflow: hidden;
+}
+
+.ComparisonTableRow, .InformationTableRow
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.L
+{
+	border-left: 0.25vw solid #303030;
+}
+
+.R
+{
+	border-right: 0.25vw solid #303030;
+}
+
+.T
+{
+	border-top: 0.25vw solid #303030;
+}
+
+.B
+{
+	border-bottom: 0.25vw solid #303030;
+}
+
+#Wrong
+{
+	display: none;
+}
+
+.GF
+{
+	background: rgba(118,	185, 0, 0.9);#76b900;
+}
+
+.AMD
+{
+	background: rgba(255, 36, 36, 0.9);
+}
+
+.Better
+{
+	color: #1E8449;
+}
+
+.Worse
+{
+	color: #C0392B;
+}
+
+.Same
+{
+	color: #F39C12;
+}

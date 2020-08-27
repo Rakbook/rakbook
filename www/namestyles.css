@@ -1,0 +1,99 @@
+
+.AdminNameStyle
+{
+	color: hotpink;
+}
+
+.RedaktorNameStyle
+{
+	color: darkkhaki;
+}
+
+.NormalNameStyle
+{
+
+}
+
+.BlueNameStyle
+{
+	color: blue;
+}
+
+.BlackNameStyle
+{
+	color: black;
+}
+
+.DeepSkyBlueNameStyle
+{
+	color: deepskyblue;
+}
+
+.SpringGreenNameStyle
+{
+	color: springgreen;
+}
+
+.GreenNameStyle
+{
+	color: green;
+}
+
+.RedNameStyle
+{
+	color: red;
+}
+
+.BacaNameStyle
+{
+	color: #0BACA0;
+}
+
+.AmarantowyNameStyle
+{
+	color: #E61C66;
+}
+.SkopiowanyZInternetu {
+  letter-spacing: normal;
+  animation-name: kozak;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.FruitOrange /* OrangeOrange ???*/
+{
+	color: #ff8000;
+}
+
+.GrassGreen
+{
+	color: #517F19;
+}
+
+.BananaYellow
+{
+	color: #FFC100;
+}
+
+.PlumPurple
+{
+	color: #884EA0;
+}
+
+.StreamBlue
+{
+	color: #195EA5;
+}
+
+.CrabRed
+{
+	color: #ED3333;
+}
+
+@keyframes kozak{
+  0%   {color:HotPink; letter-spacing: normal;}
+	25%   {color:Gold;}
+  50%  {color:#0BACA0; letter-spacing: 3px}
+	75%   {color:Crimson; }
+  100% {color:HotPink;letter-spacing: normal;}
+}

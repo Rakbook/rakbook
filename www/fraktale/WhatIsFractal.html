@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Martel:wght@900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="data/styles.css">
+  <link rel="stylesheet" href="data/WhatIsFractal.css">
+  <script type="text/javascript" src="./collapse.js"></script>
+  <title>Kraina Fraktali</title>
+</head>
+<body>
+  <div class="upperMargin">
+  </div>
+  <div class="header">
+    <ul>
+      <!-- Home page -->
+      <li><a href="index.html">Strona główna</a></li>
+      <!-- Overview of fractals by Marta HZ -->
+      <li><a href="WhatIsFractal.html">Co to fraktal?</a></li>
+      <!-- MyFractal School Project -->
+      <li><a href="myFractalmain.html">MójFraktal</a></li>
+      <!-- Licensing stuff and contributions -->
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <div class="content InfoSlide">
+    <section class="infoSection">
+      <h1 class="heading" style="text-align: center">O fraktalach</h1>
+      <hr class="line">
+    </section>
+    <section class="infoSection">
+      <button class="infoHeading collapsible">Opis</button>
+      <div class="collapseContent">
+        Fraktal (łac. fractus – złamany, cząstkowy, ułamkowy) w znaczeniu potocznym oznacza zwykle obiekt
+        „nieskończenie złożony” (ukazujący coraz bardziej złożone detale w dowolnie wielkim powiększeniu).
+        Ze względu na olbrzymią różnorodność przykładów matematycy obecnie unikają podawania ścisłej definicji.
+        W zamian wymienia się cechy obiektów fraktalnych – najważniejsze to:
+        <ul class="infoList">
+          <li> - samopodobieństwo – tzn. w skład obiektu wchodzą jego „mniejsze kopie (lub przybliżone kopie)”, np. liść paproci;</li>
+          <li> - nietrywialna struktura w każdej skali – tzn. powiększanie ujawnia kolejne równie skomplikowane formy, np. drzewo, konary, gałęzie;</li>
+          <li> - niecałkowity (a nawet niewymierny) wymiar fraktalny, np. nieskończenie długa krzywa zamknięta, która jest osadzona w ograniczonej
+            przestrzeni (obiekt o typie „pomiędzy” linią a płaszczyzną) – przykład rzeczywisty to chociażby linia brzegowa i pomiar jej długości:
+            im mniejsza skala pomiaru tym istotnie większy wynik.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="infoSection">
+      <button class="infoHeading collapsible">Historia</button>
+      <div class="collapseContent">
+        <div>
+          Po raz pierwszy pojęcie fraktali zostało wprowadzone do matematyki za sprawą francuskiego matematyka i informatyka polskiego
+          pochodzenia Benoita Mandelbrota w latach 70-tych XX wieku. Używając komputera do wizualizacji, uczynił z fraktali przedmiot
+          intensywnych badań, przyczyniając się do lepszego ich poznania i wszechstronnego zastosowania w praktyce. Najważniejsze osoby,
+          które istotnie przyczyniły się do rozwoju geometrii fraktalnej, to:
+        </div>
+        <ul class="infoList" style="">
+          <li> - Karl Weierstrass (1815 – 1897)</li>
+          <li> - Georg Cantor (1845 – 1918)</li>
+          <li> - Helge von Koch (1870 – 1924)</li>
+          <li> - Felix Hausdorff (1868 – 1942)</li>
+          <li> - Gaston Julia (1893 – 1978)</li>
+          <li> - Pierre Fatou (1878 – 1929)</li>
+          <li> - Paul Lévy (1886 – 1971)</li>
+          <li> - Benoit Mandelbrot (1924 – 2010)</li>
+        </ul>
+      </div>
+    </section>
+    <section class="infoSection">
+      <!-- THIS MUST BE DIVIDED, BEACAUSE THERE'S TOOOOOOOO MUCH TEXT AND SCROLLING ON THE SITE -->
+      <button class="infoHeading collapsible2">Przykłady</button>
+      <div class="collapseContent2">
+        <div>
+          <button class="infoSubHeading collapsible">Zbiór Cantora</button>
+          <div class="collapseContent">
+            <div>
+              Georg Ferdinand Ludwig Philipp Cantor (1845 – 1918) – niemiecki matematyk, który zainicjował (oraz znacząco rozwinął) teorię mnogości. <br>
+              Zbiór Cantora jest podzbiorem jednostkowego odcinka powstającym poprzez:
+              <ul class="infoList">
+                <li>- podział odcinka na 3 równe części;</li>
+                <li>- usunięcie części środkowej;</li>
+                <li>- powtórzenie procedury usuwania dla nowo powstałych odcinków.</li>
+              </ul>
+              <p>
+                Finalny zbiór Cantora jest zbiorem granicznym przy nieskończenie wielu iteracjach wykonanych zgodnie z powyższymi punktami. <br>
+                Zbiór Cantora został opisany w roku 1883.
+              </p>
+            </div>
+            <div class="image">
+              <img src="images/examples/cantor.png" alt="no image found" width="100%">
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Płatek Kocha</button>
+          <div class="collapseContent">
+            <div>
+              <h3 class="infoSubHeading">Krzywa Kocha</h3>
+              <p>
+                Krzywa Kocha jest to krzywa fraktalna. Jest ona nieskończenie długa (dla nieskończonej złożoności),
+                ale mieści się na skończonej powierzchni. Została ona opisana po raz pierwszy w pracy
+                <span style="font-style: italic">"Sur une courbe continue sans tangente obtenue par une construction géométrique élémentaire"</span>
+                przez Helgego von Kocha w roku 1904.
+              </p>
+              <div class="image">
+                <img src="images/examples/kochKrzywa.png" alt="no image found" width="60%">
+              </div>
+            </div>
+            <div>
+              <h3 class="infoSubHeading">Płatek Kocha</h3>
+              <p>
+                Płatek Kocha powstaje poprzez narysowanie trzech Krzywych Kocha w taki sposób, że razem tworzą jedną figurę.
+                Tak samo jak w poprzednim przypadku możliwe jest ustawienie złożoności tak, aby rysowanie zakończyło się w określonym momencie.
+                Oto przykładowe rysunki płatków Kocha:
+              </p>
+              <div class="image">
+                <img src="images/examples/kochPlatek.png" alt="no image found" width="60%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Smok Heighwaya</button>
+          <div class="collapseContent">
+            <p>
+              Smok Heighwaya był badany po raz pierwszy przez Johna Heighwaya, Bruce’a Banksa i Williama Hartera z NASA.
+              Fraktal ten pojawił się w powieści Michaela Crichtona Jurassic Park.
+            </p>
+            <div class="image">
+              <img src="images/examples/heighwayAnim.gif" alt="no image found" width="100%">
+            </div>
+            <p>
+              Cztery smoki, wychodzące z jednego punktu, wypełniają płaszczyznę.
+            </p>
+            <div class="image">
+              <img src="images/examples/heighwayColour.png" alt="no image found" width="50%">
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Fraktale Sierpińskiego</button>
+          <div class="collapseContent">
+            <div>
+              <h3 class="infoSubHeading">Fraktale Wacława Sierpińskiego</h3>
+              <div>
+                Bardzo ciekawe i jedne z najbardziej znanych na całym świecie fraktali to dywan i trójkąt Sierpińskiego.
+                Wacław Sierpiński to jednego z najwybitniejszych polskich matematyków żyjący w latach 1882-1969, współtwórca Polskiej Szkoły Matematycznej.
+              </div>
+            </div>
+            <div>
+              <h3 class="infoSubHeading">Dywan Sierpińskiego</h3>
+              <p>
+                Fraktal, który powstaje poprzez podzielenie kwadratu na 9 części i usunięcie środkowej.
+                W kolejnym kroku ponownie dzielimy pozostałe kwadraty na 9 części i usuwamy z każdego środkową część.
+              </p>
+              <div class="image">
+                <img src="images/examples/dywan.png" alt="no image found" width="50%">
+              </div>
+            </div>
+            <div>
+              <h3 class="infoSubHeading">Trójkąt Sierpińskiego</h3>
+              <p>
+                Konstrukcja fraktala z trójkątem jest analogiczna jak z kwadratem. Oczywiście dzielimy trójkąt na mniej części -
+                dokładnie na 4 i usuwamy środkową. Poniżej grafika z kolejnymi krokami powstawania tego fraktala.
+              </p>
+              <div class="image">
+                <img src="images/examples/trojkat.jpg" alt="no image found" width="50%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Kostka Mengera</button>
+          <div class="collapseContent">
+            <p>
+              Odpowiednikiem trójwymiarowym Dywanu Sierpińskiego jest kostka, której konstrukcję podał austriacki matematyk Karl Menger w 1927 roku.
+            </p>
+            <div class="image">
+              <div style="display: inline">
+                <img src="images/examples/Menger.jpg" alt="no image found" width="50%">
+              </div>
+              <div style="display: inline">
+                <img src="images/kosteczka.gif" alt="no image found" width="40%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Zbiór Julii</button>
+          <div class="collapseContent">
+            <p>
+              Nazwa zbioru Julii (ang. Julia Set) pochodzi od nazwiska jego odkrywcy - francuskiego matematyka Gastona Julii. Brzeg tego zbioru jest fraktalem.
+            </p>
+            <div class="image">
+              <img src="images/examples/julia.jpg" alt="no image found" width="40%">
+            </div>
+          </div>
+        </div>
+        <hr class="line2">
+        <div>
+          <button class="infoSubHeading collapsible">Zbiór Mandelbrota</button>
+          <div class="collapseContent">
+            <p>
+              Zbiór Mandelbrota (żuk Mandelbrota) – podzbiór płaszczyzny zespolonej, którego brzeg jest jednym z najbardziej znanych fraktali,
+              „najsłynniejszym obiektem współczesnej matematyki”. Nazwa tego obiektu została wprowadzona dla uhonorowania jego odkrywcy,
+              francuskiego matematyka Benoit Mandelbrota.
+            </p>
+            <div class="image">
+              <div style="display: inline">
+                <img src="images/examples/mandelbrot.png" alt="no image found" width="40%">
+              </div>
+              <div style="display: inline">
+                <img src="images/examples/mandelbrot.gif" alt="no image found" width="75%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="infoSection">
+      <p style="margin-top: 0">Autor: Marta Hering-Zagrocka</p>
+    </section>
+  </div>
+  <script type="text/javascript">
+    doAllCollapse();
+  </script>
+  </body>
+  </html>

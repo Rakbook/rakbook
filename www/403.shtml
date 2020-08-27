@@ -1,0 +1,11 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML><HEAD>
+<TITLE>403 Zabronione</TITLE>
+<meta charset="utf-8"/>
+</HEAD><BODY>
+<H1>Zabronione</H1>
+Nie masz dostępu do tego pliku <br/>
+<!--#echo var="REQUEST_URI" -->
+<HR>
+<I><!--#echo var="HTTP_HOST" --></I>
+</BODY></HTML>
