@@ -167,8 +167,8 @@ if(isset($_POST['wyslanoformularz'])
 		//die($stmt->error);
 		die("Nie udało się wykonać zapytania");
 		die("Coś się zepsuło");
-	}#xxx
-	$to = "wojtek.j.malecha@gmail.com, mikolaj.juda@gmail.com";
+	}
+	$to = getenv('NEW_USER_EMAILS');
 	$topic = "Nowy użytkownik!";
 	$headers = 'From: donotreply@rakbook.pl';
 	$content = "Nowy użytkownik chce dołączyć do Rakbooka! Jego nazwa: ".$_POST['username'].". Jego numer w dzienniku: ".$_POST['nrdziennik']; 

@@ -54,7 +54,7 @@ class RegistrationUser
 			
 			easyQuery('INSERT INTO users (user_name, user_pass, user_nrwdzienniku) VALUES(?, ?, ?)', 'ssi', $this->login, $passhash, $this->nr);
 			
-			$to = "wojtek.j.malecha@gmail.com, mikolaj.juda@gmail.com";
+			$to = getenv('NEW_USER_EMAILS');
 			$topic = "Nowy użytkownik!";
 			$headers = 'From: donotreply@rakbook.pl';
 			$content = "Nowy użytkownik chce dołączyć do Rakbooka! Jego nazwa: ".$this->login.". Jego numer w dzienniku: ".$this->nr; 
