@@ -195,7 +195,7 @@ if(isset($_POST['wyslanoformularz'])
 <!DOCTYPE html>
 <html>
 <head>
-  <?php require('StandardHead.php'); ?>
+  <?php require('standardHead.php'); ?>
 </head>
 <body>
   <div class="Container">
