@@ -26,13 +26,17 @@ require_once('userinfo.php');
       <div class="changelogContainer">
         <p class="changelogHeader"> &nbsp; changelog </p>
         <div class="changelog">
-            <span>• 27.08.20 - Rakbook jest teraz open-source! Nasze <a href="https://github.com/Rakbook/rakbook">repozytorium</a></span>
-						<span>• 27.08.20 - Rework strony z cytatami.</span>
-						<span>• 20.08.20 - Wsparcie dla drag and drop przy dodawaniu mema.</span>
-						<span>• 15.08.20 - Nowe GUI dla dyżurnych.</span>
-            <span>• 14.08.20 - Nowe GUI dodawania cytatów i memeów.</span>
-            <span>• 01.06.20 - Wersja alfa <a href="rakbook.apk">aplikacji.</a></span>
-            <span>• 23.04.20 - Nowa szata graficzna sklepu ze stylami.</span>
+          <!-- changes are in changelog.html -->
+          <?php
+            $myfile = fopen("changelog.html", "r");
+            $content = fread($myfile,filesize("changelog.html"));
+            fclose($myfile);
+            $content = preg_split('/\n/', $content);
+            for ($i=0; $i < count($content); $i++) { 
+              echo "<span>".$content[$i]."</span>";
+            }
+
+          ?>
       </div></div>
     </div>
   </div>
