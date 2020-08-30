@@ -35,7 +35,7 @@ for ($i=0; $i < count($tytuly); $i++) {
 
 <body>
   <div class="Container">
-    <?php require('Topbar.php') ?>
+    <?php require('topbar.php') ?>
 
     <div class="Content">
 <form class="playlista" action="newplaylist.php" id="potwierdzenie" method="post">

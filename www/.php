@@ -19,7 +19,7 @@ require_once('userinfo.php');
 </head>
 <body>
   <div class="Container">
-    <?php require('Topbar.php') ?>
+    <?php require('topbar.php') ?>
 
     <div class="Content">
       <!-- Tutaj fajne rzeczy -->
