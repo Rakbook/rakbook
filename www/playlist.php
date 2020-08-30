@@ -39,7 +39,7 @@ for ($i=0; $i < count($tytuly); $i++) {
 
     <div class="Content">
 <form class="playlista" action="newplaylist.php" id="potwierdzenie" method="post">
-<p>Stworzenie playlisty kosztuje 20 <img src="images/Rakcoin.svg" class="RakcoinImage"></p>
+<p>Stworzenie playlisty kosztuje 20 <img src="images/rakcoin.svg" class="RakcoinImage"></p>
 	Nazwa playlisty: <input type="text" id="nazwap" name="pnazwa" value="">
 	<input type="hidden" name="kontent" id ="plejlista" value="">
 </form>

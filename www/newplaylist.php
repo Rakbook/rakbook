@@ -17,7 +17,7 @@ if((strlen($_POST["kontent"])/2)>40)
 }else{
 	if(getusersrakcoins($_SESSION['userid'])<20)
 	{
-			$komunikat = "Masz za mało <img src=\"images/Rakcoin.svg\" class=\"RakcoinImage\">!";
+			$komunikat = "Masz za mało <img src=\"images/rakcoin.svg\" class=\"RakcoinImage\">!";
 	}else{
 $komunikat = "Pomyślnie utworzono nową playlistę! Możesz ją teraz zobaczyć <a href=\"playlists.php\">tutaj</a>";
 require_once("dbutils.php");
@@ -38,7 +38,7 @@ if($row["autor"]!=$_SESSION['userid']){
 }	else{
 easyQuery("DELETE FROM playlisty WHERE id=?", "i", $_POST['todelete']);
 giverakcoins($_SESSION['userid'], 15);
-$komunikat = "Pomyślnie usunięto playlistę. Zwracamy ci 15 <img src=\"images/Rakcoin.svg\" class=\"RakcoinImage\">!";
+$komunikat = "Pomyślnie usunięto playlistę. Zwracamy ci 15 <img src=\"images/rakcoin.svg\" class=\"RakcoinImage\">!";
 }
 }else{
 
