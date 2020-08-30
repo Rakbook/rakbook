@@ -16,7 +16,7 @@ unset($_SESSION['registrationsucces']);
 <!doctype html>
 <html>
 <head>
-<?php require('StandardHead.php'); ?>
+<?php require('standardHead.php'); ?>
 </head>
 
 <body>

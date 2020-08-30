@@ -29,7 +29,7 @@ for ($i=0; $i < count($tytuly); $i++) {
 <!DOCTYPE html>
 <html>
 <head>
-  <?php require('StandardHead.php'); ?>
+  <?php require('standardHead.php'); ?>
 	<script src="nodzu.js"></script>
 </head>
 

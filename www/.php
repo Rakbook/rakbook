@@ -15,7 +15,7 @@ require_once('userinfo.php');
 <!DOCTYPE html>
 <html>
 <head>
-  <?php require('StandardHead.php'); ?>
+  <?php require('standardHead.php'); ?>
 </head>
 <body>
   <div class="Container">
