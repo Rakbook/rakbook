@@ -1,3 +1,20 @@
+$(document).ready(function() {
+
+  $(".dayPanel").click(function(){
+    $(".dayPanel").css("pointer-events", "none");
+    var day = $(this).children(".day").html();
+    $(".dayPopup").children(".text").html('Kliknąłeś ' + day);
+    $(".dayPopup").css("display", "flex");
+
+  });
+
+  $("#close").click(function(){
+    $(".dayPopup").css("display", "none");
+    $(".dayPanel").css("pointer-events", "auto");
+  });
+});
+
+
 // ------------- Zadania domowe ---------------
 
 function showHomeworkDropdown(event){
