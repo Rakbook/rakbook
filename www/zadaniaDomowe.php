@@ -43,24 +43,17 @@ function countcat(string $cat)
   <div class="container">
     <?php require('topbar.php') ?>
     <div class="content">
-      <div class="headline">Zadania Domowe</div>
-		<!-- v1
 			<div class="homeworkContainer">
-				<div class="dayPanel green"><div class="day">Dzisiaj</div><div class="number"><div class="numberBackground">1</div></div></div>
-				<div class="dayPanel blue"><div class="day">Jutro</div><div class="number"><div class="numberBackground">0</div></div></div>
-				<div class="dayPanel yellow"><div class="day">Środa</div><div class="number"><div class="numberBackground">4</div></div></div>
-				<div class="dayPanel yellow"><div class="day">Czwartek</div><div class="number"><div class="numberBackground">0</div></div></div>
-				<div class="dayPanel yellow"><div class="day">Piątek</div><div class="number"><div class="numberBackground">2</div></div></div>
+				<div class="navPanel">Zadania Domowe</div><!-- tutaj będzie dodawanie zadań itp. -->
+				<div class="homeworkRow">
+					<div class="dayPanel green"><div class="day">Dzisiaj</div><div class="number"><div class="numberBackground">1</div></div></div>
+					<div class="dayPanel blue"><div class="day">Jutro</div><div class="number"><div class="numberBackground">0</div></div></div>
+				</div><div class="homeworkRow">
+					<div class="dayPanel red"><div class="day">Ten tydzień</div><div class="number"><div class="numberBackground">4</div></div></div>
+					<div class="dayPanel yellow"><div class="day">Zadania długoterminowe</div><div class="number"><div class="numberBackground">0</div></div></div>
+				</div>
+				<div id="dayPopup" class="green"><div class="dayPopupBackground"></div><div id="close">Zamknij mnie</div></div>
 			</div>
-			<div class="dayPopup red"><div class="text"></div><div id="close">Zamknij mnie</div></div>
-		--><!-- v2 -->
-		<div class="homeworkContainer">
-			<div class="dayPanel green"><div class="day">Dzisiaj</div><div class="number"><div class="numberBackground">1</div></div></div>
-			<div class="dayPanel blue"><div class="day">Jutro</div><div class="number"><div class="numberBackground">0</div></div></div>
-			<div class="dayPanel red"><div class="day">Ten tydzień</div><div class="number"><div class="numberBackground">4</div></div></div>
-			<div class="dayPanel yellow"><div class="day">zadania długoterminowe</div><div class="number"><div class="numberBackground">0</div></div></div>
-		</div>
-		<div class="dayPopup green"><div class="text"></div><div id="close">Zamknij mnie</div></div>
 		</div>
 	</div>
 </body>
