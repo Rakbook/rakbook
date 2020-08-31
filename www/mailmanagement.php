@@ -138,7 +138,7 @@ function deleteMail(&$stream, $uid)
 {
 	$mid=imap_msgno($stream, $uid);
 	
-	if(!imap_mail_move($stream, $mid.':'.$mid, 'INBOX.Trash'))
+	if(!imap_mail_move($stream, $mid.':'.$mid, getenv('IMAP_TRASH_DIRECTORY')))
 	{
 		die("Nie udało się przenieść wiadomości do kosza");
 	}
