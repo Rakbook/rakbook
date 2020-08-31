@@ -28,7 +28,7 @@ if(isset($_POST['content'])&&isset($_POST['category'])&&isset($_POST['link']))
 <head>
   <?php require('standardHead.php'); ?>
 	<link rel="stylesheet" type="text/css" href="homework.css">
-	<link rel="stylesheet" type="text/css" href="announcementColors.css">
+	<link rel="stylesheet" type="text/css" href="divColors.css">
 	<script src="homework.js"></script>
 </head>
 <body>

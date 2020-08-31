@@ -36,7 +36,7 @@ function countcat(string $cat)
   <?php require('standardHead.php'); ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="homework.css">
-  <link rel="stylesheet" type="text/css" href="announcementColors.css">
+  <link rel="stylesheet" type="text/css" href="divColors.css">
 	<script src="homework.js"></script>
 </head>
 <body>
