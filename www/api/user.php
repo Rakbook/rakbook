@@ -35,7 +35,7 @@ class RegistrationUser
 			$maxdzienniknum=33;
 			if($dzienniknum<1||$dzienniknum>$maxdzienniknum)
 			{
-				if($dzienniknum!=41) respond('podaj prawidłowy numer w dzienniku', 409);
+				if($dzienniknum!=41&&$dzienniknum!=666) respond('podaj prawidłowy numer w dzienniku', 409);
 			}
 			
 			$result=easyQuery('SELECT id FROM users WHERE user_nrwdzienniku=?', 'i', $this->nr);
@@ -56,9 +56,8 @@ class RegistrationUser
 			
 			$to = getenv('NEW_USER_EMAILS');
 			$topic = "Nowy użytkownik!";
-			$headers = 'From: donotreply@rakbook.pl';
 			$content = "Nowy użytkownik chce dołączyć do Rakbooka! Jego nazwa: ".$this->login.". Jego numer w dzienniku: ".$this->nr; 
-			mail($to, $topic, $content, $headers);
+			mail($to, $topic, $content);
 			
 		} else
 		{
