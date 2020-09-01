@@ -20,16 +20,17 @@ a {
   width: 15vh;
   height: 3.2vh;
 
-  font-family: Arial;
+  font-family: 'Lato', sans-serif;
   font-weight: bold;
   font-size: 1.6vh;
   color: #131218;
 
-  border: 2px solid grey;
-  border-radius: 8px;
-
   cursor: pointer;
   transition-duration: 0.4s;
+
+  background-color: #E5E7E9;
+  border: 3px solid rgba(19, 18, 24, 0.25);
+  border-radius: 6px;
 }
 .submit:hover {
   background-color: #555555;
@@ -55,27 +56,77 @@ a {
 
   font-size: 10vh;
   font-weight: bold;
+  font-family: 'Changa', sans-serif;
 }
 
 .login {
+  display: flex;
   grid-area: login;
   place-self: stretch center;
+  background-color: #293251;
+  border: 4px solid rgba(19, 18, 24, 0.5);
+  border-radius: 15px;
+}
 
+.loginBackground {
+  align-self: stretch;
   display: grid;
-  grid-template-rows: 30fr 13fr 13fr 10fr 10fr 15fr 15fr;
+  grid-template-rows: 25fr 10fr 10fr 10fr 10fr 15fr 10fr;
   grid-template-columns: 1fr;
   grid-row-gap: 5px;
   place-items: center;
-
   width: 47vh;
-  background-color: #293251;
-  border: 2px solid white;
-  border-radius: 15px;
   font-size: 2.7vh;
+  background: rgba(19, 18, 24, 0.25);
+  border: 2px solid rgba(19, 18, 24, 0.2);
+  border-radius: 6px;
+  margin: 5px;
 }
 
+.register {
+  grid-area: login;
+  place-self: stretch center;
+  display: flex;
+  background-color: #293251;
+  border: 4px solid rgba(19, 18, 24, 0.5);
+  border-radius: 15px;
+}
+
+.registerBackground {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 47vh;
+  font-size: 2.7vh;
+  background: rgba(19, 18, 24, 0.25);
+  border: 2px solid rgba(19, 18, 24, 0.2);
+  border-radius: 6px;
+  margin: 5px;
+}
+
+.alertbox{
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
 .login-sign-up {
   font-size: 2vh;
+}
+
+.login-remember {
+  display: flex;
+  align-items: center;
+}
+
+.login-welcome, .login-password, .login-username{
+  font-family: 'Changa', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .info {
