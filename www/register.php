@@ -123,10 +123,10 @@ if(isset($_POST['wyslanoformularz'])
 			<div class="registerBackground">
 				<div class="login-welcome" style="font-size: 4vh;">Rakbook Rejestracja</div>
 				<div>
-					<div class="login-username">Login: &nbsp; <input style="width: 10vw;"type="text" name="username" value="<?php if(isset($_POST['username'])) echo($_POST['username']); ?>"/></div>
-					<div class="login-username">Nr w dzienniku: &nbsp;<input style="width: 10vw;" type="number" name="nrdziennik" value="<?php if(isset($dzienniknum)) echo($dzienniknum); ?>"/></div>
-					<div class="login-username">Hasło: &nbsp;<input style="width: 10vw;" type="password" name="password"/></div>
-					<div class="login-username">Powtórz hasło: &nbsp;<input style="width: 10vw;" type="password" name="repeatpassword"/></div>
+					<div class="login-username">Login: &nbsp; <input style="width: 40%;"type="text" name="username" value="<?php if(isset($_POST['username'])) echo($_POST['username']); ?>"/></div>
+					<div class="login-username">Nr w dzienniku: &nbsp;<input style="width: 40%;" type="number" name="nrdziennik" value="<?php if(isset($dzienniknum)) echo($dzienniknum); ?>"/></div>
+					<div class="login-username">Hasło: &nbsp;<input style="width: 40%;" type="password" name="password"/></div>
+					<div class="login-username">Powtórz hasło: &nbsp;<input style="width: 40%;" type="password" name="repeatpassword"/></div>
 				</div>
       	<input class="submit" type="submit" name="wyslanoformularz" value="Zarejestruj się"/>
 			</div>
