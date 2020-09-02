@@ -9,7 +9,14 @@ function findColor(element){
   }
 }
 
+function setmargin(){
+  var margin = $(document).height() - $(".homeworkContainer").height();
+  document.documentElement.style.setProperty('--margin', margin/4 + "px");
+}
+
 $(document).ready(function() {
+
+  setmargin();
 
   $(".dayPanel").click(function(){
     $(".dayPanel").css("pointer-events", "none");
@@ -19,7 +26,7 @@ $(document).ready(function() {
     $("#dayPopup").removeClass();
     $("#dayPopup").addClass(color);
 
-    $("#dayPopup").children(".text").html('Kliknąłeś: &nbsp;"' + day + '" ');
+    $(".dayPopupBackground").children("#homeworkTitle").html(day);
     $("#dayPopup").css("display", "flex");
 
   });
@@ -32,20 +39,26 @@ $(document).ready(function() {
 
 // ------------- Zadania domowe ---------------
 
-function showHomeworkDropdown(event){
-  if(document.getElementById(event.target.id + "Dropdown").style.display == 'none'){
+function showHomeworkDropdown(event)
+{
+  if(document.getElementById(event.target.id + "Dropdown").style.display == 'none')
+  {
     document.getElementById(event.target.id + "Dropdown").style.display = 'flex';
   }
-  else{
+  else
+  {
     document.getElementById(event.target.id + "Dropdown").style.display = 'none';
   }
 }
 
-function showInfo(){
-  if(document.getElementById("info").style.display == 'none'){
+function showInfo()
+{
+  if(document.getElementById("info").style.display == 'none')
+  {
     document.getElementById("info").style.display = 'flex';
   }
-  else{
+  else
+  {
     document.getElementById("info").style.display = 'none';
   }
 }
