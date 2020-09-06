@@ -15,11 +15,10 @@ if(isset($_POST['content'])&&isset($_POST['category'])&&isset($_POST['link']))
 {
     if(strlen($_POST['content'])>0)
     {
-        easyQuery('INSERT INTO zadania (category, content, link) VALUES (?, ?, ?)', 'sss', $_POST['category'], $_POST['content'], $_POST['link']);
+        easyQuery('INSERT INTO zadania (category, content, link, date) VALUES (?, ?, ?, ?)', 'ssss', $_POST['category'], $_POST['content'], $_POST['link'], $_POST['date']);
         header('Location: zadaniaDomowe.php');
     }
 }
-
 
 ?>
 
@@ -70,6 +69,7 @@ if(isset($_POST['content'])&&isset($_POST['category'])&&isset($_POST['link']))
 				</select>
 				<label for="Tresc">Treść:</label> <input type="text" id="tresc" class="addHomeworkInput" name="content">
 				<label for="Link">Link (opcjonalne, zalecane)</label><input type="text" id="link" class="addHomeworkInput" name="link">
+				<label for="Data">Data:</label> <input type="date" id="data" class="addHomeworkInput" name="date">
 			</div></div>
 			<button type="submit" class="homeworkSmallButton" style="width: 80px; height: 35px; margin-left: auto; margin-right: auto; margin-top: 25px; margin-bottom: 200px;">Dodaj</button> <!-- onclick = dodaj zadanie domowe -->
     	</form>

@@ -1,7 +1,7 @@
 
 function findColor(element){
   var classList = $(element).attr('class').split(/\s+/);
-  var colors = ["blue", "red", "yellow", "green"];
+  var colors = ["blue", "red", "yellow", "green", "jadeite"];
   for(let i = 0; i < colors.length; i++){
     if($.inArray( colors[i], classList) != -1){
       return colors[i];
@@ -19,13 +19,16 @@ function onLoad(){
 
   $(".dayPanel").click(function(){
     $(".dayPanel").css("pointer-events", "none");
-    var day = $(this).children(".day").html();
+    var daytitle = $(this).children(".day").html();
 
     var color = findColor(this);
     $("#dayPopup").removeClass();
     $("#dayPopup").addClass(color);
+    day = $(this)[0].id;
 
-    $(".dayPopupBackground").children("#homeworkTitle").html(day);
+    $("#homeworkContent").load('loadHomeworkList.php #homeworkContent', {date: date, day: day});
+
+    $(".dayPopupBackground").children("#homeworkTitle").html(daytitle);
     $("#dayPopup").css("display", "flex");
 
   });
@@ -37,13 +40,13 @@ function onLoad(){
 
   $("#previous").click(function(){
     date = date - 604800;
-    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date});
+    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date, day: day});
     console.log(date);
   });
 
   $("#next").click(function(){
     date = date + 604800;
-    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date});
+    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date, day: day});
     console.log(date);
   });
 

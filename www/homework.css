@@ -94,7 +94,7 @@ a {
 .titlePanel {
   width: 80vw;
   max-width: 600px;
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -118,7 +118,7 @@ a {
   -webkit-tap-highlight-color: transparent;
   width: 80vw;
   max-width: 300px;
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -159,7 +159,7 @@ a {
   justify-content: center;
   margin: 5px;
   width: 26px;
-  height: 66px;
+  height: 46px;
 }
 
 .dayPopupBackground {
