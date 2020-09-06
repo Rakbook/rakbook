@@ -10,13 +10,12 @@ function findColor(element){
 }
 
 function setmargin(){
-  var margin = $(document).height() - $(".homeworkContainer").height();
+  document.documentElement.style.setProperty('--margin', 0);
+  var margin = $(document).height() - $("#homeworkContainer").height();
   document.documentElement.style.setProperty('--margin', margin/4 + "px");
 }
 
-$(document).ready(function() {
-
-  setmargin();
+function onLoad(){
 
   $(".dayPanel").click(function(){
     $(".dayPanel").css("pointer-events", "none");
@@ -35,7 +34,25 @@ $(document).ready(function() {
     $("#dayPopup").css("display", "none");
     $(".dayPanel").css("pointer-events", "auto");
   });
-});
+
+  $("#previous").click(function(){
+    date = date - 604800;
+    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date});
+    console.log(date);
+  });
+
+  $("#next").click(function(){
+    date = date + 604800;
+    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date});
+    console.log(date);
+  });
+
+  $("#info").click(function(){
+    alert("info kiedyś będzie");
+  });
+
+  setmargin();
+}
 
 // ------------- Zadania domowe ---------------
 

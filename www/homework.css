@@ -1,3 +1,12 @@
+a {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 10px;
+  text-align: left;
+}
 
 #dayPopup {
   display: none;
@@ -25,8 +34,23 @@
 }
 
 #homeworkContent {
-  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
+}
+
+#previous, #next {
+  cursor: pointer;
+}
+
+#homeworkContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--margin);
 }
 
 .homeworkButton {
@@ -35,7 +59,7 @@
   border: 3px solid rgba(19, 18, 24, 0.5);
   border-radius: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   font-weight: bold;
 }
@@ -43,14 +67,19 @@
 .small {
   width: 29px;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .big {
-  width: 140px;
+  width: 150px;
+}
+
+.arrow{
+  cursor: pointer;
 }
 
 .buttonBar {
-  width: 230px;
+  width: 240px;
   display: flex;
   justify-content: space-between;
 }
@@ -74,14 +103,6 @@
   border-radius: 10px;
   font-size: 22px;
   font-weight: bold;
-}
-
-.homeworkContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: var(--margin);
 }
 
 .homeworkRow {
