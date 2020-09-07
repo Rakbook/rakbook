@@ -17,6 +17,7 @@ require_once('dbutils.php');
 <head>
   <?php require("standardHead.php"); ?>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="homework.css">
   <link rel="stylesheet" type="text/css" href="divColors.css">
 	<script src="homework.js"></script>
@@ -25,7 +26,6 @@ require_once('dbutils.php');
   <div class="container">
     <?php require("topbar.php") ?>
     <div class="content">
-			<div id="homeworkContainer">
 				<?php require('loadHomeworkList.php'); ?>
 		</div>
 	</div>

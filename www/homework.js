@@ -10,7 +10,8 @@ function findColor(element){
 }
 
 function setmargin(){
-  document.documentElement.style.setProperty('--margin', 0);
+
+  document.documentElement.style.setProperty('--margin', 0 + "px");
   var margin = $(document).height() - $("#homeworkContainer").height();
   document.documentElement.style.setProperty('--margin', margin/4 + "px");
 }
@@ -40,13 +41,13 @@ function onLoad(){
 
   $("#previous").click(function(){
     date = date - 604800;
-    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date, day: day});
+    $(".content").load( "loadHomeworkList.php", {date: date, day: day});
     console.log(date);
   });
 
   $("#next").click(function(){
     date = date + 604800;
-    $("#homeworkContainer").load( "loadHomeworkList.php", {date: date, day: day});
+    $(".content").load( "loadHomeworkList.php", {date: date, day: day});
     console.log(date);
   });
 
@@ -55,30 +56,7 @@ function onLoad(){
   });
 
   setmargin();
-}
-
-// ------------- Zadania domowe ---------------
-
-function showHomeworkDropdown(event)
-{
-  if(document.getElementById(event.target.id + "Dropdown").style.display == 'none')
-  {
-    document.getElementById(event.target.id + "Dropdown").style.display = 'flex';
-  }
-  else
-  {
-    document.getElementById(event.target.id + "Dropdown").style.display = 'none';
-  }
-}
-
-function showInfo()
-{
-  if(document.getElementById("info").style.display == 'none')
-  {
-    document.getElementById("info").style.display = 'flex';
-  }
-  else
-  {
-    document.getElementById("info").style.display = 'none';
-  }
+  $(window).resize(function() {
+    setmargin();
+  });
 }
