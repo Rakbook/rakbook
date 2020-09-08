@@ -39,6 +39,13 @@ function onLoad(){
     $(".dayPanel").css("pointer-events", "auto");
   });
 
+  $(document).click(function(event){
+    if(!$(event.target).closest("#dayPopup, .dayPanel").length){
+      $("#dayPopup").css("display", "none");
+      $(".dayPanel").css("pointer-events", "auto");
+    }
+  });
+
   $("#previous").click(function(){
     date = date - 604800;
     $(".content").load( "loadHomeworkList.php", {date: date, day: day});

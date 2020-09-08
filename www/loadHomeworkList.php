@@ -21,7 +21,7 @@ function printcat(string $daydate){
     $result = easyQuery('SELECT content, link, category FROM zadania WHERE date=?', 's', $daydate);
 
     while($row=$result->fetch_assoc()){
-        echo '<a target="blank" href="'.$row['link'].'">• '.$row['category'].' - ' .$row['content'].'</a>';
+        echo '<span class="homework">• '.$row['category'].' - ' .$row['content'].'</span>';
     }
 }
 
