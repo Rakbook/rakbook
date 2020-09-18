@@ -28,7 +28,7 @@ if(is_numeric($_GET['mailuid'])) {
 	}
 	
 	$mid=imap_msgno($inbox, (int)$_GET['mailuid']);
-	echo nl2br(getrawmail($inbox, $mid));
+	echo nl2br(htmlentities(getrawmail($inbox, $mid)));
 	
 
 } else {
