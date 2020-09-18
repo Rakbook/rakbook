@@ -91,6 +91,11 @@ class Part
 	}
 }
 
+function getrawmail(&$stream, $mid)
+{
+	return imap_fetchbody($stream, $mid, "");
+}
+
 class Mail
 {
 	
@@ -131,6 +136,11 @@ class Mail
 		}
 		
 		$this->message=nl2br($this->message);
+	}
+	
+	function generateLink()
+	{
+		return '<a href="rawmail.php?mailuid='.$this->uid.'">'.'wyświetl żródło'.'</a>';
 	}
 }
 
