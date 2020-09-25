@@ -7,7 +7,6 @@ class Attachment
 {
 	public $name;
 	public $type;
-	public $data;
 	public $messageuid;
 	public $messagepartnumber;
 	
@@ -15,7 +14,6 @@ class Attachment
 	{
 		$this->name=$name;
 		$this->type=$type;
-		$this->data=$data;
 		$this->messageuid=$uid;
 		$this->messagepartnumber=$partnumber;
 	}
@@ -54,11 +52,11 @@ class Part
 			foreach ($p->dparameters as $x)
 				$params[strtolower($x->attribute)] = $x->value;
 		
-		if($params['filename'] || $params['name'])
+		if(isset($params['filename']) || isset($params['name']))
 		{
 			$filename = $params['filename'] ? $params['filename'] : $params['name'];
 			$filename= iconv_mime_decode($filename);
-		}elseif($params['filename*'] || $params['name*'])
+		}elseif(isset($params['filename*']) || isset($params['name*']))
 		{
 			$filename=$params['filename*']?$params['filename*']:$params['name*'];
 			$explodedname=explode("'", $filename);
@@ -66,7 +64,7 @@ class Part
 			$filename=iconv($explodedname[0], 'UTF-8', $filename);
 		}
 		
-		if ($filename)
+		if (isset($filename))
 		{
 			$this->attachments[] = new Attachment($filename, $p->type, imap_uid($stream, $mid), $partno);
 		}elseif ($p->type==0 && $data)
@@ -79,7 +77,7 @@ class Part
 			$this->message.=$data.'<br>';
 		}
 		
-		if ($p->parts)
+		if (isset($p->parts))
 		{
 			foreach ($p->parts as $pno0=>$p2)
 			{
