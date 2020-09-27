@@ -20,13 +20,7 @@ $partno='';
 
 if(is_numeric($_GET['mailuid'])) {
     
-	$inbox = imap_open($mailserver, $maillogin, $mailpass);
-	
-	if(!$inbox)
-	{
-		die("Nie udało się połączyć z serwerem pocztowym");
-		die("Coś się zepsuło");
-	}
+	$inbox = getInbox();
 	
 	$mid=imap_msgno($inbox, (int)$_GET['mailuid']);
 	$partno=$_GET['partno'];

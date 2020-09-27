@@ -1,4 +1,5 @@
 <?php
+header("Content-Type: text/plain");
 session_start();
 if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 {
@@ -28,7 +29,7 @@ if(is_numeric($_GET['mailuid'])) {
 	}
 	
 	$mid=imap_msgno($inbox, (int)$_GET['mailuid']);
-	echo nl2br(htmlentities(getrawmail($inbox, $mid)));
+	echo getrawmail($inbox, $mid);
 	
 
 } else {
