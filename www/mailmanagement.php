@@ -126,7 +126,27 @@ class Part
 	{
 		if($this->type==TYPEMULTIPART)
 		{
-			return 'multipart';
+			$message='';
+			if(isset($this->subtype)&&$this->subtype=='alternative')
+			{
+				$parts=array_reverse($this->parts);
+				foreach($parts as $p)
+				{
+					if($p->type==TYPETEXT)
+					{
+						return $p->html_converted_body;
+					}
+				}
+				return '<span style="color:red">Żadna z alternatyw tej części wiadomości nie jest wspierana przez Rakbooka</span>';
+			}else
+			{
+				foreach($this->parts as $p)
+				{
+					$msg=$p->getMessage();
+					$message.=strlen($msg)>0?'<p>'.$p->getMessage().'</p>':'';
+				}
+			}
+			return $message;
 		}else
 		{
 			return $this->html_converted_body;

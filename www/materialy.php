@@ -61,7 +61,7 @@ include("requestuserdata.php");
 				}
 			}
 			echo "</li>";
-			echo '<a href="rawmail.php?mailuid='.$m->uid.'">'.'wyświetl żródło'.'</a><br>';
+			echo '<a target="_blank" href="rawmail.php?mailuid='.$m->uid.'">'.'wyświetl żródło'.'</a><br>';
 				if($_SESSION['redaktor'])
 				{
 			echo '<br> <li><form action="" method="POST"> <input type="hidden" name="mailtodelete" value="'.$m->uid.'"/> <input type="submit" value="Usuń"/> </form> </li>';
