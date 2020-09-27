@@ -3,17 +3,146 @@ $mailserver=getenv('IMAP_MAILSERVER');
 $maillogin=getenv('IMAP_MAILLOGIN');
 $mailpass=getenv('IMAP_MAILPASS');
 
+function getInbox()
+{
+	global $mailserver, $maillogin, $mailpass;
+	$inbox = imap_open($mailserver, $maillogin, $mailpass);
+		if(!$inbox)
+		{
+		die("Nie udało się połączyć z serwerem pocztowym");
+		die("Coś się zepsuło");
+		}
+	return $inbox;
+}
+
+class Mail
+{
+	
+	public $from;
+	public $subject;
+	public $uid;
+	public $date;
+	public $mainPart;
+	
+	function __construct(&$stream, $mid)
+	{
+		$this->uid=imap_uid($stream, $mid);
+		$h=imap_header($stream, $mid);
+		$fromInfo = $h->from[0];
+		$this->from=(isset($fromInfo->mailbox) && isset($fromInfo->host)) ? $fromInfo->mailbox . '@' . $fromInfo->host : '';
+		$this->subject=isset($h->subject) ? imap_mime_header_decode($h->subject)[0]->text : '';
+		$this->date=isset($h->date) ? strtotime($h->date) : null;
+		$s=imap_fetchstructure($stream, $mid);
+		$this->mainPart = new Part($stream, $mid, $s, '');
+		//print_r($s);
+		//print_r(imap_body($stream, $mid));
+	}
+	
+	function getMessage()
+	{
+		return $this->mainPart->getMessage();
+	}
+
+	function getAttachments()
+	{
+		return $this->mainPart->getAttachments();
+	}
+}
+
+class Part
+{
+	public $html_converted_body;
+	public $attachment;
+	public $parts;
+	public $type;
+	public $subtype;
+	
+	function __construct(&$stream, $mid, $p, $partno='')
+	{
+		$this->html_converted_body=null;
+		$this->attachment=null;
+		$this->type=$p->type;
+		$this->subtype=isset($p->subtype)?strtolower($p->subtype):null;
+		$params = array();
+		if (isset($p->parameters)){
+			foreach ($p->parameters as $x)
+				$params[strtolower($x->attribute)] = $x->value;}
+		if (isset($p->dparameters))
+			foreach ($p->dparameters as $x)
+				$params[strtolower($x->attribute)] = $x->value;
+		$filename = Attachment::getFilename($params);
+
+		if (isset($filename))
+		{
+			$this->attachment = new Attachment($filename, imap_uid($stream, $mid), $partno);
+		}else
+		{
+			if($p->type==TYPETEXT)
+			{
+				$this->html_converted_body=$partno==''?imap_body($stream, $mid):imap_fetchbody($stream, $mid, $partno);
+				if ($p->encoding==4)
+					$this->html_converted_body = quoted_printable_decode($this->html_converted_body);
+				elseif ($p->encoding==3)
+					$this->html_converted_body = base64_decode($this->html_converted_body);
+
+				$this->html_converted_body=iconv($params['charset'], 'UTF-8', $this->html_converted_body);
+				if(!(isset($p->subtype)&&strtolower($p->subtype)=='html'))
+				{
+					$this->html_converted_body=nl2br(htmlentities($this->html_converted_body));
+				}
+			}else
+			{
+				$this->html_converted_body = '<span style="color:red">ta część wiadomosci nie jest wspierana przez Rakbooka</span>';
+			}
+		}
+
+		if($partno!='')
+		{
+			$partno.='.';
+		}
+		
+		$this->parts=array();
+		if(isset($p->parts))
+		{
+			foreach($p->parts as $pnum=>$part)
+			{
+				$this->parts[]=new Part($stream, $mid, $part, $partno.($pnum+1));
+			}
+		}
+	}
+
+	function getAttachments()
+	{
+		$a=array();
+		if(isset($this->attachment)) $a[] = $this->attachment;
+		foreach($this->parts as $part)
+		{
+			$a = array_merge($a, $part->getAttachments());
+		}
+		return $a;
+	}
+
+	function GetMessage()
+	{
+		if($this->type==TYPEMULTIPART)
+		{
+			return 'multipart';
+		}else
+		{
+			return $this->html_converted_body;
+		}
+	}
+}
+
 class Attachment
 {
 	public $name;
-	public $type;
 	public $messageuid;
 	public $messagepartnumber;
 	
-	function __construct($name, $type, $uid, $partnumber)
+	function __construct($name, $uid, $partnumber)
 	{
 		$this->name=$name;
-		$this->type=$type;
 		$this->messageuid=$uid;
 		$this->messagepartnumber=$partnumber;
 	}
@@ -22,36 +151,10 @@ class Attachment
 	{
 		return '<a href="downloadattachment.php?mailuid='.$this->messageuid.'&partno='.$this->messagepartnumber.'">'.$this->name.'</a>';
 	}
-}
 
-class Part
-{
-	public $message;
-	public $attachments;
-	
-	function __construct(&$stream, $mid, $p, $partno)
+	static function getFilename($params)
 	{
-		$this->message='';
-		$this->attachments=array();
-		
-		$data='';
-		
-		if($p->type<3)
-		{
-			$data = $partno ? imap_fetchbody($stream, $mid, $partno) : imap_body($stream, $mid);
-			if ($p->encoding==4)
-				$data = quoted_printable_decode($data);
-			elseif ($p->encoding==3)
-				$data = base64_decode($data);
-		}
-		$params = array();
-		if ($p->ifparameters)
-			foreach ($p->parameters as $x)
-				$params[strtolower($x->attribute)] = $x->value;
-		if ($p->ifdparameters)
-			foreach ($p->dparameters as $x)
-				$params[strtolower($x->attribute)] = $x->value;
-		
+		$filename=null;
 		if(isset($params['filename']) || isset($params['name']))
 		{
 			$filename = $params['filename'] ? $params['filename'] : $params['name'];
@@ -63,83 +166,14 @@ class Part
 			$filename=rawurldecode($explodedname[2]);
 			$filename=iconv($explodedname[0], 'UTF-8', $filename);
 		}
-		
-		if (isset($filename))
-		{
-			$this->attachments[] = new Attachment($filename, $p->type, imap_uid($stream, $mid), $partno);
-		}elseif ($p->type==0 && $data)
-		{
-			$charset = $params['charset'];
-			$data=iconv($charset, 'UTF-8', $data);
-			$this->message.=$data.'<br>';
-		}elseif($p->type==2 && $data)
-		{
-			$this->message.=$data.'<br>';
-		}
-		
-		if (isset($p->parts))
-		{
-			foreach ($p->parts as $pno0=>$p2)
-			{
-				$part=new Part($stream, $mid, $p2, $partno.($pno0+1));
-				$this->message.=$part->message.'<br>';
-				$this->attachments=array_merge($this->attachments, $part->attachments);
-			}
-		}
+
+		return $filename;
 	}
 }
 
 function getrawmail(&$stream, $mid)
 {
 	return imap_fetchbody($stream, $mid, "");
-}
-
-class Mail
-{
-	
-	public $from;
-	public $subject;
-	public $message;
-	public $attachments;
-	public $uid;
-	public $date;
-	
-	function __construct(&$stream, $mid)
-	{
-		$this->attachments=array();
-		$this->uid=imap_uid($stream, $mid);
-		$h=imap_header($stream, $mid);
-		$fromInfo = $h->from[0];
-		$this->from=(isset($fromInfo->mailbox) && isset($fromInfo->host)) ? $fromInfo->mailbox . '@' . $fromInfo->host : '';
-		$this->subject=isset($h->subject) ? imap_mime_header_decode($h->subject)[0]->text : '';
-		$this->date=isset($h->date) ? strtotime($h->date) : null;
-		
-		$this->message='';
-		
-		$s=imap_fetchstructure($stream, $mid);
-		
-		if(!$s->parts)
-		{
-			$p=new Part($stream, $mid, $s, 0);
-			$this->message.=$p->message;
-			$this->attachments=$p->attachments;
-		}else
-		{
-			foreach($s->parts as $pno0 => $part)
-			{
-				$p=new Part($stream, $mid, $part, $pno0+1);
-				$this->message.=$p->message.'<br>';
-				$this->attachments=array_merge($this->attachments, $p->attachments);
-			}
-		}
-		
-		$this->message=nl2br($this->message);
-	}
-	
-	function generateLink()
-	{
-		return '<a href="rawmail.php?mailuid='.$this->uid.'">'.'wyświetl żródło'.'</a>';
-	}
 }
 
 function deleteMail(&$stream, $uid)

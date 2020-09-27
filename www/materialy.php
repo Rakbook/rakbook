@@ -28,12 +28,7 @@ include("requestuserdata.php");
 		require_once("mailmanagement.php");
 
 
-		$inbox = imap_open($mailserver, $maillogin, $mailpass);
-		if(!$inbox)
-		{
-		die("Nie udało się połączyć z serwerem pocztowym");
-		die("Coś się zepsuło");
-		}
+		$inbox = getInbox();
 
 	  	if($_SESSION['redaktor']&&isset($_POST['mailtodelete'])&&is_numeric($_POST['mailtodelete']))
 		{
@@ -54,18 +49,19 @@ include("requestuserdata.php");
 			echo "<li>Temat: " . $m->subject . "</li>";
 			echo "<li>Data: " . (isset($m->date) ? date('d.m.Y H:i:s', $m->date) : "niedostępna") . "</li>";
 
-			echo "<li class=\"wiadomosc\">Treść: ".$m->message."</li>";
+			echo "<li class=\"wiadomosc\">".$m->getMessage()."</li>";
 			echo "<li>Załączniki:<br>";
-			if(empty($m->attachments)) echo 'brak';
+			$attachments = $m->getAttachments();
+			if(empty($attachments)) echo 'brak';
 			else
 			{
-				foreach($m->attachments as $a)
+				foreach($attachments as $a)
 				{
 					echo $a->generateLink().'<br>';
 				}
 			}
 			echo "</li>";
-			echo $m->generateLink().'<br>';
+			echo '<a href="rawmail.php?mailuid='.$m->uid.'">'.'wyświetl żródło'.'</a><br>';
 				if($_SESSION['redaktor'])
 				{
 			echo '<br> <li><form action="" method="POST"> <input type="hidden" name="mailtodelete" value="'.$m->uid.'"/> <input type="submit" value="Usuń"/> </form> </li>';
