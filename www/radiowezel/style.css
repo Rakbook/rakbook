@@ -1,0 +1,20 @@
+a
+{
+    color: black;
+    text-decoration: none;
+}
+
+.waiting
+{
+    background-color: lightgrey;
+}
+
+.rejected
+{
+    background-color: red;
+}
+
+.accepted
+{
+	background-color: lime;
+}
