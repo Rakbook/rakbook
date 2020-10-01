@@ -1,8 +1,8 @@
 function refresh()
 {
     $('#refreshbutton').hide();
-    let resultdiv=$( "#result" );
-    resultdiv.empty();
+    let resultlist=$( "#result" );
+    resultlist.empty();
     let pages=parseInt($('#pages').val());
     if(pages<1)
     {
@@ -32,7 +32,7 @@ function refresh()
             let styling='waiting';
             if(data[i].status==-1) styling='rejected';
             else if(data[i].status==1) styling='accepted';
-            resultdiv.append('<a class="'+styling+'" href="'+data[i].url+'">'+data[i].name+'</a><br>');
+            resultlist.append('<li class="'+styling+'"><a href="'+data[i].url+'">'+data[i].name+'</a><br></li>');
         }
         $('#refreshbutton').show();
       });

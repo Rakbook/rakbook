@@ -4,17 +4,38 @@ a
     text-decoration: none;
 }
 
+ul
+{
+    font-size: 16px;
+    list-style: none;
+    text-align: left;
+    width:500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li
+{
+    margin: 5px;
+    padding: 3px;
+    border: 3px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 3px;
+    background-color: cadetblue;
+}
+
 .waiting
 {
-    background-color: lightgrey;
+    background-color: rgb(147, 182, 184);
 }
 
 .rejected
 {
-    background-color: red;
+    background-color: rgb(235, 91, 91);
 }
 
 .accepted
 {
-	background-color: lime;
+	background-color: rgb(114, 223, 114);
 }

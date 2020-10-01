@@ -13,10 +13,9 @@
 	<input type="checkbox" id="rejected" onchange="refresh()" checked> Odrzucone
 	<input type="checkbox" id="accepted" onchange="refresh()" checked> Zatwierdzone <br>
 	<input type="button" id="refreshbutton" onclick="refresh()" value="odśwież">
-	<div id="result">
-
-
-
+	<div>
+		<ul id="result">		
+		</ul>
 	</div>
 
 </body>
