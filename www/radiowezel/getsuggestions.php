@@ -77,7 +77,7 @@ if(isset($decoded->result))
 		}else
 		{
 			$youtubeidentifier=null;
-			if(($parsedurl['host']=='www.youtube.com'||$parsedurl['host']=='youtube.com')&&$parsedurl['path']=='/watch'&&isset($parsedurl['query']))
+			if(($parsedurl['host']=='www.youtube.com'||$parsedurl['host']=='youtube.com'||$parsedurl['host']=='m.youtube.com')&&$parsedurl['path']=='/watch'&&isset($parsedurl['query']))
 			{
 				$params=array();
 				parse_str($parsedurl['query'], $params);
