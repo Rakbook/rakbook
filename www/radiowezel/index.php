@@ -9,9 +9,9 @@
 </head>
 <body>
 	<input type="number" id="pages" min="1" value="1"> Ilość stron<br>
-	<input type="checkbox" id="waiting" checked> Oczekujące
-	<input type="checkbox" id="rejected" checked> Odrzucone
-	<input type="checkbox" id="accepted" checked> Zatwierdzone <br>
+	<input type="checkbox" id="waiting" onchange="refresh()" checked> Oczekujące
+	<input type="checkbox" id="rejected" onchange="refresh()" checked> Odrzucone
+	<input type="checkbox" id="accepted" onchange="refresh()" checked> Zatwierdzone <br>
 	<input type="button" id="refreshbutton" onclick="refresh()" value="odśwież">
 	<div id="result">
 
