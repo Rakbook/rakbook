@@ -16,12 +16,11 @@ else{
 	$day = 0;
 }
 
-
 function printcat(string $daydate){
     $result = easyQuery('SELECT content, link, category FROM zadania WHERE date=?', 's', $daydate);
 
     while($row=$result->fetch_assoc()){
-        echo '<span class="homework">• '.$row['category'].' - ' .$row['content'].'</span>';
+        echo '<div class="homework">• '.$row['category'].' - ' .$row['content'].'</div>';
     }
 }
 
@@ -55,7 +54,5 @@ function countcat(string $daydate){
 	<div class="homeworkRow">
   	<div class="dayPanel jadeite" id="0"><div class="day">Piątek</div><div class="number"><div class="numberBackground"><?php echo countcat(date("Y-m-d", strtotime("-0 days", $date))); ?></div></div></div>
 	</div>
-	<div id="dayPopup" class="green"><div class="dayPopupBackground"><div id="homeworkTitle"></div><div id="homeworkContent"><?php echo printcat(date("Y-m-d", strtotime("-".$day." days", $date))); ?></div><div id="close">x</div></div></div>
-</div>
-	<script> onLoad(); </script>
-</div>
+	<div id="dayPopup" class="green"><div class="dayPopupBackground"><div id="homeworkTitle"></div><div id="homeworkContent"><?php echo printcat(date("Y-m-d", strtotime("-".$day." days", $date))); ?></div><div id="navdiv">
+	<div id="close">x</div></div></div></div></div>
