@@ -9,6 +9,12 @@ function findColor(element){
   }
 }
 
+function randomColor(){
+  var colors = ["blue", "red", "yellow", "green", "jadeite", "orange", "purple"];
+  var rand = Math.floor(Math.random() * colors.length);
+  return colors[rand];
+}
+
 function setmargin(){
 
   document.documentElement.style.setProperty('--margin', 0 + "px");
@@ -42,15 +48,18 @@ function onLoad(){
   });
 
   $(document).on('click', '.homework', function(){
-    var hwname = $(this).html();
-    hwname = hwname.split(/- (.+)/)[1];
-    $(document).on('load', '#dayPopup', function(){ onLoad(); });
-    $("#dayPopup").load('loadHomeworkDesc.php', {date: date, day: day, hwname: hwname});
+    if(!$(event.target).closest("input[type=\"checkbox\"]").length){
+      var hwname = $(this).html();
+      hwname = hwname.split(/- (.+)/)[1];
+      $(document).on('load', '#dayPopup', function(){ onLoad(); });
+      $("#dayPopup").load('loadHomeworkDesc.php', {hwname: hwname});
+    }
   });
 
   $(document).on('click', '#close', function(){
     $("#dayPopup").css("display", "none");
     $(".dayPanel").css("pointer-events", "auto");
+    $("#back").css("display", "none");
   });
 
   $(document).on('click', '#back', function(){
@@ -62,9 +71,10 @@ function onLoad(){
   });
 
   $(document).click(function(event){
-    if(!$(event.target).closest("#dayPopup, .dayPanel").length){
+    if(!$(event.target).closest("#dayPopup, .dayPanel, #accept").length){
       $("#dayPopup").css("display", "none");
       $(".dayPanel").css("pointer-events", "auto");
+      $("#back").css("display", "none");
     }
   });
 
@@ -82,6 +92,13 @@ function onLoad(){
     console.log(date);
   });
 
+  $(document).on('click', '#accept', function(){
+    $("#dayPopup").load('loadHomeworkToAccept.php');
+    $("#dayPopup").removeClass();
+    $("#dayPopup").addClass(randomColor());
+    $("#dayPopup").css("display", "flex");
+  });
+
   $(document).on('click', '#info', function(){
     alert("info kiedyś będzie");
   });
@@ -92,6 +109,6 @@ function onLoad(){
   });
 }
 
-$( document ).ready(function() {
+$(document).ready(function() {
     onLoad();
 });

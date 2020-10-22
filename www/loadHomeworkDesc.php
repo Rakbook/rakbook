@@ -10,19 +10,6 @@ if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 	header("Location: index.php");
 	die();
 }
-if(isset($_POST['date'])){
-	$date = $_POST['date'];
-}
-else{
-	$date = strtotime("last monday", strtotime("tomorrow"));
-}
-
-if(isset($_POST['day'])){
-	$day = $_POST['day'];
-}
-else{
-	$day = 0;
-}
 
 if(isset($_POST['hwname'])){
 	$hwname = $_POST['hwname'];
