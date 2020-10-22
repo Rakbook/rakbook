@@ -1,7 +1,15 @@
 <?php
 
 require_once('dbutils.php');
-
+if(!isset($_SESSION['loggedin']))
+{
+	session_start();
+}
+if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
+{
+	header("Location: index.php");
+	die();
+}
 if(isset($_POST['date'])){
 	$date = $_POST['date'];
 }
