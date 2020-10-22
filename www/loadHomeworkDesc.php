@@ -25,7 +25,7 @@ else{
 
 
 function printdesc(string $name){
-    $result = easyQuery('SELECT link FROM zadania WHERE content=?', 's', $name);
+    $result = easyQuery('SELECT link FROM zadania WHERE content=? AND accepted=1', 's', $name);
 
     while($row=$result->fetch_assoc()){
         echo '<span class="desc">'.$row['link'].'</span>';

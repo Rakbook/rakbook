@@ -17,7 +17,7 @@ else{
 }
 
 function printcat(string $daydate){
-    $result = easyQuery('SELECT content, link, category FROM zadania WHERE date=?', 's', $daydate);
+    $result = easyQuery('SELECT content, link, category FROM zadania WHERE date=? AND accepted=1', 's', $daydate);
 
     while($row=$result->fetch_assoc()){
         echo '<div class="homework">• '.$row['category'].' - ' .$row['content'].'</div>';
@@ -25,7 +25,7 @@ function printcat(string $daydate){
 }
 
 function countcat(string $daydate){
-    $result = easyQuery('SELECT COUNT(id) AS count FROM zadania WHERE date=?', 's', $daydate);
+    $result = easyQuery('SELECT COUNT(id) AS count FROM zadania WHERE date=? AND accepted=1', 's', $daydate);
     return $result->fetch_assoc()['count'];
 }
 
