@@ -10,6 +10,20 @@ if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 	header("Location: index.php");
 	die();
 }
+if(isset($_POST['homeworksub']))
+{
+	if($_SESSION['redaktor'])
+	{
+		$result = easyQuery('SELECT id, category, content, link, date FROM zadania WHERE accepted=0');
+		while($row=$result->fetch_assoc())
+		{
+			if(isset($_POST[$row['id']]))
+			{
+				easyQuery("UPDATE zadania SET accepted=1 WHERE id=?", 'i', $row['id']);
+			}
+		}
+	}
+}
 if(isset($_POST['date'])){
 	$date = $_POST['date'];
 }
@@ -42,12 +56,17 @@ function countcat(string $daydate){
 <?php
 	if($_SESSION['redaktor']==1)
 	{
-		echo " <div> <div> zadania do zaakceptowania </div><form method=\"POST\">";
+		echo " <div> <div> zadania do zaakceptowania </div>";
 	$result = easyQuery('SELECT id, category, content, link, date FROM zadania WHERE accepted=0');
+	if ($result->num_rows > 0) {
+		echo "<form method=\"POST\">";
 	while($row=$result->fetch_assoc()){
-        echo "<input type=\"checkbox\" name=\"id\" value=\"id\"> kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
+        echo "<input type=\"checkbox\" name=\"".$row['id']."\" value=\"".$row['id']."\"> kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
 	}
-	echo "<input type=\"submit\" value=\"Potwierdź\"></form></div>";
+	echo "<input name=\"homeworksub\" type=\"submit\" value=\"Potwierdź\"></form></div>";
+	}else{
+		echo "Ni ma";
+	}
 }
 ?>	
 	<script> var date = <?php echo $date; ?>;  var day = <?php echo $day; ?> </script>
