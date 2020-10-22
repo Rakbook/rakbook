@@ -212,7 +212,9 @@ CREATE TABLE `zadania` (
   `id` int(11) NOT NULL,
   `category` text COLLATE utf8_polish_ci NOT NULL,
   `content` text COLLATE utf8_polish_ci NOT NULL,
-  `link` text COLLATE utf8_polish_ci NOT NULL
+  `link` text COLLATE utf8_polish_ci NOT NULL,
+  `date` date DEFAULT NULL DEFAULT 0,
+  `accepted` int(11) NOT NULL DEFAULT 0 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
