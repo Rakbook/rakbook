@@ -31,6 +31,17 @@ function countcat(string $daydate){
 
 ?>
 <div id="homeworkContainer">
+<?php
+	if($_SESSION['redaktor']==1)
+	{
+		echo " <div> <div> zadania do zaakceptowania </div>";
+	$result = easyQuery('SELECT id, category, content, link, date FROM zadania WHERE accepted=0');
+	while($row=$result->fetch_assoc()){
+        echo "kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
+	}
+	echo "</div>";
+}
+?>	
 	<script> var date = <?php echo $date; ?>;  var day = <?php echo $day; ?> </script>
 	<div class="navPanel"><div class="buttonBar">
   	<div class="homeworkButton small" onclick="location.href='dodajZadanieDomowe.php'">+</div>
