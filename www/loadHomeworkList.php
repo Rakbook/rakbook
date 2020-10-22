@@ -42,12 +42,12 @@ function countcat(string $daydate){
 <?php
 	if($_SESSION['redaktor']==1)
 	{
-		echo " <div> <div> zadania do zaakceptowania </div>";
+		echo " <div> <div> zadania do zaakceptowania </div><form method=\"POST\">";
 	$result = easyQuery('SELECT id, category, content, link, date FROM zadania WHERE accepted=0');
 	while($row=$result->fetch_assoc()){
-        echo "kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
+        echo "<input type=\"checkbox\" name=\"id\" value=\"id\"> kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
 	}
-	echo "</div>";
+	echo "<input type=\"submit\" value=\"Potwierdź\"></form></div>";
 }
 ?>	
 	<script> var date = <?php echo $date; ?>;  var day = <?php echo $day; ?> </script>
