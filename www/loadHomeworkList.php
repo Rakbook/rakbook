@@ -24,6 +24,20 @@ if(isset($_POST['homeworksub']))
 		}
 	}
 }
+if(isset($_POST['reject']))
+{
+	if($_SESSION['redaktor'])
+	{
+		$result = easyQuery('SELECT id, category, content, link, date FROM zadania WHERE accepted=0');
+		while($row=$result->fetch_assoc())
+		{
+			if(isset($_POST[$row['id']]))
+			{
+				easyQuery("DELETE FROM zadania WHERE id=?", 'i', $row['id']);
+			}
+		}
+	}
+}
 if(isset($_POST['date'])){
 	$date = $_POST['date'];
 }
@@ -63,7 +77,7 @@ function countcat(string $daydate){
 	while($row=$result->fetch_assoc()){
         echo "<input type=\"checkbox\" name=\"".$row['id']."\" value=\"".$row['id']."\"> kategoria: ".$row['category'].", treść: ".$row['content'].", link: ".$row['link']."<br>";
 	}
-	echo "<input name=\"homeworksub\" type=\"submit\" value=\"Potwierdź\"></form></div>";
+	echo "<input name=\"homeworksub\" type=\"submit\" value=\"Potwierdź\"><input name=\"reject\" type=\"submit\" value=\"Odrzuć\"></form></div>";
 	}else{
 		echo "Ni ma";
 	}
