@@ -16,15 +16,48 @@ function randomColor(){
 }
 
 function setmargin(){
-
-  document.documentElement.style.setProperty('--margin', 0 + "px");
   var margin = $(document).height() - $("#homeworkContainer").height();
   document.documentElement.style.setProperty('--margin', margin/4 + "px");
+}
+
+function setInputs(){
+  $("#tytul").val(title);
+  $("#opis").val(desc);
+  $("#data").val(date);
+  $("#kategoria").val(cat);
+}
+
+function trackSelected(change){
+  selected += change;
+  if(selected > 0){
+    $(".subicon").prop('disabled', false);
+  }
+  else{
+    $(".subicon").prop('disabled', true);
+  }
+}
+
+function toggleDirection() {
+  if($("#dayPopup").width() < 550){
+    $("#subbar").removeClass();
+    $("#subbar").addClass("vertical");
+
+    $("#homeworkTitle").html("Zadania do <br/> zaakceptowania");
+
+  }
+  else{
+    $("#subbar").removeClass();
+    $("#subbar").addClass("horizontal");
+
+    $("#homeworkTitle").html("Zadania do zaakceptowania");
+  }
 }
 
 function onLoad(){
 
   var daytitle;
+  var color;
+  var prev = "homework";
 
   $(document).off("click");
 
@@ -48,11 +81,12 @@ function onLoad(){
   });
 
   $(document).on('click', '.homework', function(){
-    if(!$(event.target).closest("input[type=\"checkbox\"]").length){
+    if(!$(event.target).closest(".fakeCheckbox").length){
       var hwname = $(this).html();
       hwname = hwname.split(/- (.+)/)[1];
       $(document).on('load', '#dayPopup', function(){ onLoad(); });
       $("#dayPopup").load('loadHomeworkDesc.php', {hwname: hwname});
+      prev = "homework";
     }
   });
 
@@ -63,10 +97,18 @@ function onLoad(){
   });
 
   $(document).on('click', '#back', function(){
-    $(document).on('load', '#homeworkContent', function(){ onLoad(); });
-    $("#navdiv").load('loadHomeworkList.php #navdiv');
-    $("#homeworkContent").load('loadHomeworkList.php #homeworkContent', {date: date, day: day});
-    $("#homeworkTitle").html(daytitle);
+
+    if(prev == "accept"){
+      $("#dayPopup").load('loadHomeworkToAccept.php');
+      $("#dayPopup").removeClass();
+      $("#dayPopup").addClass(color);
+    }
+    else{
+      $(document).on('load', '#homeworkContent', function(){ onLoad(); });
+      $("#navdiv").load('loadHomeworkList.php #navdiv');
+      $("#homeworkContent").load('loadHomeworkList.php #homeworkContent', {date: date, day: day});
+      $("#homeworkTitle").html(daytitle);
+    }
     $("#dayPopup").css("display", "flex");
   });
 
@@ -95,20 +137,35 @@ function onLoad(){
   $(document).on('click', '#accept', function(){
     $("#dayPopup").load('loadHomeworkToAccept.php');
     $("#dayPopup").removeClass();
-    $("#dayPopup").addClass(randomColor());
+    color = randomColor();
+    $("#dayPopup").addClass(color);
     $("#dayPopup").css("display", "flex");
+    prev = "accept";
   });
 
   $(document).on('click', '#info', function(){
-    alert("info kiedyś będzie");
+    alert('Lista zadań domowych w formie kalendarza. Przy każdym dniu znajduję się numer z ilością zadań na ten dzień, kliknij konkretny dzień by zobaczyć pełną listę. W widoku listy kliknięcie na zadanie domowe otworzy jego opis. Strzałki po prawej pozwalają na poruszanie się pomiędzy tygodniami, a data wskazuje obecnie wybrany tydzień. By dodać zadanie domowe, kliknij przycisk z "+" po lewej.');
+  });
+
+  $(document).on('click', '.acceptCheckbox', function(){
+    if($(this).prop('checked')){
+      $(this).parent().addClass("check");
+      trackSelected(1);
+    }
+    else{
+      $(this).parent().removeClass("check");
+      trackSelected(-1);
+    }
   });
 
   setmargin();
-  $(window).resize(function() {
+  $(window).resize(function(){
     setmargin();
+    toggleDirection();
   });
 }
 
-$(document).ready(function() {
+$(document).ready(function(){
     onLoad();
+    $(".addHomework").addClass(randomColor());
 });

@@ -23,10 +23,10 @@ th {
 	color: white;
 	cursor: pointer;
 	border: none;
-  text-align: center;
-  text-decoration: none;
-  display: flex;
-	align-items: flex-start;
+	text-align: center;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 	background-color: #555555;
 	min-width:110px;
@@ -72,10 +72,10 @@ th {
 	color: white;
 	cursor: pointer;
 	border: none;
-	text-align: center;
 	text-decoration: none;
+	text-align: center;
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
 	background-color: #293251;
 	min-width:110px;
