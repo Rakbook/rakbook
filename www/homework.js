@@ -57,7 +57,7 @@ function onLoad(){
 
   var daytitle;
   var color;
-  var prev = "homework";
+  var prev;
 
   $(document).off("click");
 
@@ -77,7 +77,7 @@ function onLoad(){
     $("#homeworkContent").load('loadHomeworkList.php #homeworkContent', {date: date, day: day});
     $("#homeworkTitle").html(daytitle);
     $("#dayPopup").css("display", "flex");
-
+    prev = "homework";
   });
 
   $(document).on('click', '.homework', function(){
@@ -86,7 +86,6 @@ function onLoad(){
       hwname = hwname.split(/- (.+)/)[1];
       $(document).on('load', '#dayPopup', function(){ onLoad(); });
       $("#dayPopup").load('loadHomeworkDesc.php', {hwname: hwname});
-      prev = "homework";
     }
   });
 
