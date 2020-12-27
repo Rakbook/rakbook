@@ -18,13 +18,13 @@
 .topbarLeft {
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .topbarRight {
   display: flex;
   align-items: center;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .menu {
