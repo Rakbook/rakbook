@@ -26,7 +26,8 @@ require_once('userinfo.php');
 			<div class="headline">Masz <?php echo getstyledrakcoins(getusersrakcoins($_SESSION['userid'])); ?></div>
 
 			<!-- here you can put some announcements, example below -->
-			<div class="headline"> Dołącz na <a href="https://discord.gg/uCXf2hE">Klasowego discorda!</a></div>
+			<!-- <div class="headline"> Dołącz na <a href="https://discord.gg/uCXf2hE">Klasowego discorda!</a></div> -->
+			<div class="headline" style="color: gold;">Sprawdź zupełnie nowe <a href="zadaniaDomowe.php">zadania domowe</a>!</div>
 
 			<!-- changelog -->
 			<div class="changelogContainerMain">
