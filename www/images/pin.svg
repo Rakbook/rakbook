@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -13,15 +11,17 @@
    id="DESIGNS"
    x="0px"
    y="0px"
-   width="32px"
-   height="32px"
-   viewBox="0 0 32 32"
-   style="enable-background:new 0 0 32 32;"
+   width="45"
+   height="45"
+   viewBox="0 0 45 45"
    xml:space="preserve"
    sodipodi:docname="pin.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"><defs
-   id="defs13" /><sodipodi:namedview
-   pagecolor="#ffffff"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+   <defs
+   id="defs13" />
+   
+   <sodipodi:namedview
+   pagecolor="#000000"
    bordercolor="#666666"
    borderopacity="1"
    objecttolerance="10"
@@ -33,27 +33,30 @@
    inkscape:window-height="1017"
    id="namedview11"
    showgrid="false"
-   inkscape:zoom="7.375"
-   inkscape:cx="1.559322"
-   inkscape:cy="16"
-   inkscape:window-x="-8"
+   inkscape:zoom="2.8284271"
+   inkscape:cx="76.047234"
+   inkscape:cy="53.64892"
+   inkscape:window-x="1432"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
-   inkscape:current-layer="DESIGNS" />
-<title
-   property="dc:title"
-   id="title2">to pin</title><desc
-   property="dc:description"
-   id="desc4">An icon for &quot;pin&quot; from the Stone series on to [icon]. Downloaded from http://www.toicon.com/icons/stone_pin by 127.0.0.1 on 2017-07-10. Licensed CC-BY, see http://toicon.com/license/ for details.</desc>
+   inkscape:current-layer="DESIGNS"
+   inkscape:document-rotation="0" />
+
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  
 <path
-   class="stone_een"
-   d="M30.5,30.5c-0.148,0.148-0.344,0.224-0.54,0.224c-0.176,0-0.353-0.061-0.497-0.184l-11.084-9.505  l2.659-2.659l9.501,11.087C30.799,29.766,30.782,30.218,30.5,30.5z M24.293,12.293l-0.879-0.879  c-0.391-0.391-0.902-0.586-1.414-0.586s-1.024,0.195-1.414,0.586L20.45,11.55l-8.807-7.206c0.717-0.785,0.702-1.999-0.057-2.758  l-0.879-0.879c-0.391-0.391-1.024-0.391-1.414,0L0.707,9.293c-0.391,0.391-0.391,1.024,0,1.414l0.879,0.879  c0.389,0.389,0.897,0.582,1.406,0.582c0.485,0,0.97-0.176,1.352-0.525l7.206,8.807l-0.136,0.136c-0.781,0.781-0.781,2.047,0,2.828  l0.879,0.879c0.391,0.391,1.024,0.391,1.414,0l10.586-10.586C24.683,13.317,24.683,12.683,24.293,12.293z"
-   style="fill:#ffffff"
-   id="path6" />
-<metadata
-   id="metadata8"><work
-     rdf:about=""><format>image/svg+xml</format><type
-       rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><license
-       rdf:resource="http://creativecommons.org/licenses/by/4.0/" /><attributionname>Shannon E Thomas</attributionname><attributionurl>http://www.toicon.com/icons/stone_pin</attributionurl></work><rdf:RDF><cc:Work
-       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata></svg>
+   id="rect24-8"
+   style="fill:#ffffff;stroke-width:1.09085"
+   d="m 0.47712474,16.322842 a 1.3903361,1.5261293 44.999964 0 0 -0.0967463,2.062383 L 1.897372,19.90222 c 1.2598534,1.259852 3.2822921,1.30038 4.8790572,0.322467 0.1356804,0.240498 0.2835277,0.479398 0.4500511,0.713631 l 7.3676557,10.365193 c -1.31797,2.029132 -1.294571,4.655635 0.326673,6.276878 l 1.909561,1.909562 a 1.7499057,1.9208178 44.999963 0 0 2.593753,-0.120574 L 39.370777,19.422726 A 1.7499057,1.9208178 44.999963 0 0 39.49135,16.828974 L 37.581789,14.919412 C 35.960154,13.297806 33.333966,13.275328 31.304911,14.592739 L 20.939719,7.2250829 C 20.704945,7.0581728 20.465745,6.9095489 20.224685,6.7736292 21.201706,5.1770611 21.162139,3.1573195 19.902218,1.8973767 L 18.385224,0.38038298 a 1.3903361,1.5261293 44.999964 0 0 -2.06098,0.0953352 z M 28.485433,31.617565 a 0.59337995,0.68342999 44.999976 0 0 -0.04206,0.922534 l 13.490312,12.063048 c 0.643816,0.575708 1.742613,0.537084 2.47458,-0.194881 0.731965,-0.731967 0.770592,-1.830767 0.194881,-2.47458 L 32.540096,28.443373 a 0.59337995,0.68342999 44.999976 0 0 -0.922533,0.04206 z" />
+</svg>

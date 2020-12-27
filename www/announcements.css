@@ -143,6 +143,7 @@
 
 .pinImage {
     width: auto;
-    height: 0.8em;
+    height: 0.6em;
     align-self: center;
+    margin-right: 5px;
 }
