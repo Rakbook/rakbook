@@ -15,7 +15,7 @@ include("requestuserdata.php");
 <head>
   <?php require('standardHead.php'); ?>
 	<link rel="stylesheet" type="text/css" href="announcements.css">
-	<link rel="stylesheet" type="text/css" href="announcementColors.css">
+	<link rel="stylesheet" type="text/css" href="divColors.css">
 	<script src="memes.js"></script>
 </head>
 <body>

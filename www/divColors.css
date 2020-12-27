@@ -1,0 +1,60 @@
+
+/* default, unused */
+
+.default {
+  background-color: #B3B6B7;
+}
+
+/* basic colors */
+
+.green {
+  background-color: #229954;
+}
+
+.yellow {
+  background-color: #F39C12;
+}
+
+.blue {
+  background-color: #2980B9;
+}
+
+.red {
+  background-color: #E74C3C;
+}
+
+/*  rakbook main color */
+
+.darkblue {
+  background-color: #293251;
+}
+
+/* additional colors */
+
+.purple {
+  background-color: #884EA0;
+}
+
+.orange {
+  background-color: #E67E22;
+}
+
+.white {
+  background-color: #FDFEFE;
+}
+
+.jadeite {
+  background-color: #17A589;
+}
+
+.pink {
+  background-color: #ff66CC;
+}
+
+.brown {
+  background-color: #784212;
+}
+
+.black {
+  background-color: #202020;
+}

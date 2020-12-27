@@ -14,7 +14,7 @@ require_once('dbutils.php');
 <html>
 <head>
   <?php require('standardHead.php'); ?>
-	<link rel="stylesheet" type="text/css" href="announcementColors.css">
+	<link rel="stylesheet" type="text/css" href="divColors.css">
 	<link rel="stylesheet" type="text/css" href="announcements.css">
 	<link rel="stylesheet" type="text/css" href="memes.css">
 	<script src="memes.js"></script>

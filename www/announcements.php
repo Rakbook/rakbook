@@ -51,7 +51,7 @@ if(isset($_POST['ogloszenietitle'])&&isset($_POST['ogloszenietekst']))
 <html>
 <head>
   <?php require('standardHead.php'); ?>
-	<link rel="stylesheet" type="text/css" href="announcementColors.css">
+	<link rel="stylesheet" type="text/css" href="divColors.css">
 	<link rel="stylesheet" type="text/css" href="announcements.css">
 </head>
 <body>
