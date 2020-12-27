@@ -16,7 +16,7 @@ function loadList(){
   	if($result->num_rows > 0){
 	  echo "<form method=\"POST\">";
   	  while($row=$result->fetch_assoc()){
-		echo '<div class="homework"><label class="fakeCheckbox">
+		echo '<div class="homework" value="'.$row['id'].'"><label class="fakeCheckbox">
 				<input class="acceptCheckbox" type="checkbox" name="'.$row['id'].'" value="'.$row['id'].'"/>
 			  </label><span>'.$row['category']." - ".$row['content'].'</span></div>';
 		}

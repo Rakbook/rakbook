@@ -82,10 +82,10 @@ function onLoad(){
 
   $(document).on('click', '.homework', function(){
     if(!$(event.target).closest(".fakeCheckbox").length){
-      var hwname = $(this).html();
-      hwname = hwname.split(/- (.+)/)[1];
+      var hwid = $(this).attr('value');
+      //console.log(hwid);
       $(document).on('load', '#dayPopup', function(){ onLoad(); });
-      $("#dayPopup").load('loadHomeworkDesc.php', {hwname: hwname});
+      $("#dayPopup").load('loadHomeworkDesc.php', {hwid: hwid});
     }
   });
 

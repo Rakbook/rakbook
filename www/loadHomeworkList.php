@@ -53,10 +53,10 @@ else{
 }
 
 function printcat(string $daydate){
-    $result = easyQuery('SELECT content, link, category FROM zadania WHERE date=? AND accepted=1', 's', $daydate);
+    $result = easyQuery('SELECT id, content, link, category FROM zadania WHERE date=? AND accepted=1', 's', $daydate);
 
     while($row=$result->fetch_assoc()){
-        echo '<div class="homework">• '.$row['category'].' - ' .$row['content'].'</div>';
+        echo '<div class="homework" value='.$row['id'].'>• '.$row['category'].' - ' .$row['content'].'</div>';
     }
 }
 

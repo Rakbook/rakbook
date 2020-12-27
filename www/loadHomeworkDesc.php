@@ -11,23 +11,35 @@ if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 	die();
 }
 
-if(isset($_POST['hwname'])){
-	$hwname = $_POST['hwname'];
+if(isset($_POST['hwid'])){
+	$hwid = $_POST['hwid'];
 }
 else{
-	$hwname = 'Nie znaleziono';
+	$hwid = '-1';
 }
 
-
-function printdesc(string $name){
-    $result = easyQuery('SELECT link FROM zadania WHERE content=? AND accepted=1', 's', $name);
+function printdesc($id){
+    $result = easyQuery('SELECT link FROM zadania WHERE id=?','s', $id);
 
     while($row=$result->fetch_assoc()){
-        echo '<span class="desc">'.$row['link'].'</span>';
-    }
+        echo '<span class="desc"> '.$row['link'].' </span>';
+	}
+}
+
+function printname($id){
+	$count = 0;
+    $result = easyQuery('SELECT content FROM zadania WHERE id=?','s', $id);
+
+    while($row=$result->fetch_assoc()){
+		$count++;
+        echo $row['content'];
+	}
+	if($count == 0){
+		echo "Nie znaleziono takiego zadania";
+	}
 }
 
 ?>
 
-<div class="dayPopupBackground"><div id="homeworkTitle"> <?php echo $hwname; ?> </div><div id="homeworkContent"><?php echo printdesc($hwname);?></div><div id="navdiv"><div id="back">«</div><div id="close">x</div></div></div>
+<div class="dayPopupBackground"><div id="homeworkTitle"> <?php printname($hwid); ?> </div><div id="homeworkContent"><?php printdesc($hwid); ?></div><div id="navdiv"><div id="back">«</div><div id="close">x</div></div></div>
 </div>
