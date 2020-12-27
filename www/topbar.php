@@ -15,7 +15,7 @@
     <div class="settingsPopup" id="settingspopup">
       <div class="menuContent">
         <div><a class="settingsList" href="changepass.php">Zmień Hasło</a></div>
-        <div><a class="settingsList" href="support.php">Support & Creddits</a></div>
+        <div><a class="settingsList" href="support.php">Support & Credits</a></div>
         <div><a class="settingsList" href="colorsshop.php">Sklep z Kolorami</a></div>';
         if($_SESSION['userisadmin']==1)
   			{

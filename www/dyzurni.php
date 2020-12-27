@@ -26,6 +26,7 @@ require_once('userinfo.php');
 	<link rel="stylesheet" type="text/css" href="colorsshopstyles.css">
 	<link rel="stylesheet" type="text/css" href="dyzurni.css">
 	<script src="GUIscaling.js"></script>
+	<script src="utils.js"></script>
 </head>
 <body>
   <div class="container">
@@ -74,6 +75,7 @@ require_once('userinfo.php');
 				echo "</table>";
 			?>
 			<script>rescaleDyzurniGUI(dyzTable)</script>
+			<script> centerContent(); </script>
   	</div>
 	</div>
 </body>
