@@ -4,12 +4,12 @@
    <script src="topbar.js"></script>
    <div class="topbar">
     <div class="topbarLeft">
-      <img src="images/menu.png" class="menu" onclick="OpenMenuPopup()">
+      <img src="images/menu.svg" class="menu" onclick="OpenMenuPopup()">
       <a style="color: #FFFFFF;" href="main.php"><div id="title" class="title">Rakbook</div></a>
     </div>
 
     <div class="topbarRight">
-      <img src="images/settings.png" class="settings" onclick="OpenSettingsPopup()">
+      <img src="images/settings.svg" class="settings" onclick="OpenSettingsPopup()">
     </div>
 
     <div class="settingsPopup" id="settingspopup">
