@@ -16,6 +16,7 @@ function setMobileLayout(){
     document.documentElement.style.setProperty('--flex', "row");
     document.documentElement.style.setProperty('--height', "35px");
   }
+
   // -------------------- quotes --------------------
   var contentwidth = screenWidth - 80;
   if(screenWidth <= 550){
@@ -49,6 +50,7 @@ $(document).ready(function(){
     var keyword = $("#search").val();
     $("#quoteBox").load("loadquotes.php", {value: selectedValue, keyword: keyword});
   }
+  setMobileLayout();
 });
 
 $(window).resize(function(){

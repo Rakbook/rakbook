@@ -47,6 +47,7 @@
   align-items: center;
   justify-content: center;
   align-self: flex-start;
+  word-break: break-all;
 }
 
 .authorBar {

@@ -14,7 +14,7 @@
   max-width: 400px;
   position: fixed;
   left: 50%;
-  bottom: 0;
+  bottom: -7%;
   transform: translate(-50%, -50%);
 }
 
