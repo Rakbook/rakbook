@@ -45,13 +45,6 @@
              IFNULL((SELECT quotelikes.value FROM quotelikes WHERE quotelikes.personid=? AND quotelikes.quoteid=cytaty.id), 0) AS currentuserlikevalue
              FROM cytaty LEFT JOIN quotelikes ON cytaty.id = quotelikes.quoteid
              WHERE cytaty.autor LIKE '%{$keyword}%' OR cytaty.cytat LIKE '%{$keyword}%' GROUP BY cytaty.id ORDER BY ".$sortstyle." ".$sortdirection;
-  $colors = [
-    1 => "red",
-    2 => "yellow",
-    3 => "blue",
-    4 => "green",
-
-  ];
 
   require_once('generatelikebuttons.php');
   $result = easyQuery($query, "i", $_SESSION['userid']);
@@ -76,16 +69,20 @@
 
   if ($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
-      #$color = $colors[rand( 1 , 4)];
 
-      if($row["likes"]>7)
-      {
+      if($row["likes"] > 7){
         $color = "green";
-      }elseif ($row["likes"]>3) {
+      }
+      else if($row["likes"] > 3){
+        $color = "jadeite";
+      }
+      else if($row["likes"] > -1){
         $color = "blue";
-      }elseif ($row["likes"]>0) {
+      }
+      else if($row["likes"] > -3){
         $color = "yellow";
-      }else{
+      }
+      else{
         $color = "red";
       }
 
