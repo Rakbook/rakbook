@@ -56,7 +56,7 @@ function printcat(string $daydate){
     $result = easyQuery('SELECT id, content, link, category FROM zadania WHERE date=? AND accepted=1', 's', $daydate);
 
     while($row=$result->fetch_assoc()){
-        echo '<div class="homework" value='.$row['id'].'>• '.$row['category'].' - ' .$row['content'].'</div>';
+        echo '<div class="homework" value='.$row['id'].'>• '.nl2br(htmlentities($row['category'])).' - ' .nl2br(htmlentities($row['content'])).'</div>';
     }
 }
 

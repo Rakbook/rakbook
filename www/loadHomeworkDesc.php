@@ -22,7 +22,7 @@ function printdesc($id){
     $result = easyQuery('SELECT link FROM zadania WHERE id=?','s', $id);
 
     while($row=$result->fetch_assoc()){
-        echo '<span class="desc"> '.$row['link'].' </span>';
+        echo '<span class="desc"> '.nl2br(htmlentities($row['link'])).' </span>';
 	}
 }
 
@@ -32,7 +32,7 @@ function printname($id){
 
     while($row=$result->fetch_assoc()){
 		$count++;
-        echo $row['content'];
+        echo nl2br(htmlentities($row['content']));
 	}
 	if($count == 0){
 		echo "Nie znaleziono takiego zadania";

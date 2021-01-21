@@ -18,7 +18,7 @@ function loadList(){
   	  while($row=$result->fetch_assoc()){
 		echo '<div class="homework" value="'.$row['id'].'"><label class="fakeCheckbox">
 				<input class="acceptCheckbox" type="checkbox" name="'.$row['id'].'" value="'.$row['id'].'"/>
-			  </label><span>'.$row['category']." - ".$row['content'].'</span></div>';
+			  </label><span>'.nl2br(htmlentities($row['category']))." - ".nl2br(htmlentities($row['content'])).'</span></div>';
 		}
 		echo "<div id=\"subbar\" class=\"horizontal\">
 		  <input class=\"subicon green accept\" name=\"homeworksub\" type=\"submit\" value=\"\" disabled></input>
