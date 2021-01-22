@@ -9,6 +9,19 @@ if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 require_once("dbutils.php");
 include("requestuserdata.php");
 
+# check for quotes waiting to be removed
+if(!empty($_POST['postToRemove'])){
+	$postID = $_POST['postToRemove'];
+	$query = "DELETE FROM cytaty WHERE id=?";
+	easyQuery($query, "i", $postID);
+
+	# set quote modification marker
+	$_SESSION['quoteModification'] = "remove";
+	# redirect
+	header("Location: cytaty.php");
+	die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -43,20 +56,14 @@ include("requestuserdata.php");
 			</div>
 			<div class="alertBox">
 				<?php
-					if(!empty($_POST['nauczyciel'])&&!empty($_POST['content'])){
-						$content = $_POST['content'];
-				  	$content = htmlentities($content);
-			  		$nauczyciel = $_POST['nauczyciel'];
-			  		$query = 'INSERT INTO cytaty (autor, cytat, uploaderid) VALUES (?, ?, ?)';
-			  		easyQuery($query, "ssi", $nauczyciel, $content, $_SESSION['userid']);
-			  		echo "Pomyślnie dodano nowy cytat!<br>";
-					}
-
-					if(!empty($_POST['postToRemove'])){
-						$postID = $_POST['postToRemove'];
-			  		$query = "DELETE FROM cytaty WHERE id=?";
-			  		easyQuery($query, "i", $postID);
-			  		echo "Pomyślnie usunięto cytat!<br>";
+					if(isset($_SESSION['quoteModification'])) {
+						if($_SESSION['quoteModification'] == "add") {
+							echo "Pomyślnie dodano nowy cytat!<br>";
+						}
+						if($_SESSION['quoteModification'] == "remove") {
+							echo "Pomyślnie usunięto cytat!<br>";
+						}
+						unset($_SESSION['quoteModification']);
 					}
 				?>
 		</div>
