@@ -11,40 +11,6 @@ if(!isset($_SESSION['loggedin'])&&$_SESSION['loggedin']!=true)
 include("requestuserdata.php");
 require_once('userinfo.php');
 
-if(isset($_POST['ogloszenietitle'])&&isset($_POST['ogloszenietekst']))
-    {
-        $title=$_POST['ogloszenietitle'];
-        $content=$_POST['ogloszenietekst'];
-
-        if(strlen($title)<1||strlen($content)<1)
-        {
-            $_SESSION['ogloszenieadderror']='Musisz wypełnić tytuł i treść';
-            header('Location: addAnnouncement.php');
-            die();
-        }else
-        {
-
-            $color='blue';
-            if(isset($_POST['colorSelector']))
-            {
-                $color=htmlentities($_POST['colorSelector']);
-            }
-            $pinned=0;
-            if(isset($_POST['pin']))
-            {
-                $pinned=1;
-            }
-            $expires=NULL;
-            if(isset($_POST['expires'])&&strlen($_POST['expires'])>0)
-            {
-                $expires=$_POST['expires'];
-            }
-            $query = "INSERT INTO ogloszenia (title, text, pinned, autor, colorclass, expirydate) VALUES (?, ?, ?, ?, ?, ?)";
-            easyQuery($query, "ssiiss", $title, $content, $pinned, $_SESSION['userid'], $color, $expires);
-
-        }
-    }
-
 ?>
 
 <!DOCTYPE html>
