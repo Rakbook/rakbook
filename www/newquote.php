@@ -17,8 +17,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST') && (empty($_POST['nauczyciel']) || em
 }
 # CHECK IF THE USER HAS JUST POSTED, CHECK THE INPUT, AND ADD TO THE DATABASE
 if (!empty($_POST['nauczyciel']) && !empty($_POST['content'])) {
-	$content = $_POST['content'];
-	$content = htmlentities($content);
+	$content = htmlentities($_POST['content']);
 	$nauczyciel = $_POST['nauczyciel'];
 	$query = 'INSERT INTO cytaty (autor, cytat, uploaderid) VALUES (?, ?, ?)';
 	easyQuery($query, "ssi", $nauczyciel, $content, $_SESSION['userid']);

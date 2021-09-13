@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 23, 2020 at 12:42 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: global_db:3306
+-- Czas generowania: 13 Wrz 2021, 15:28
+-- Wersja serwera: 8.0.24
+-- Wersja PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,218 +18,208 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `database`
+-- Baza danych: `rakbook_matinf`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `authtokens`
+-- Struktura tabeli dla tabeli `authtokens`
 --
 
 CREATE TABLE `authtokens` (
-  `id` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
-  `selector` text COLLATE utf8_polish_ci NOT NULL,
-  `validatorhash` text COLLATE utf8_polish_ci NOT NULL,
-  `expires` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `userid` int NOT NULL,
+  `selector` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `validatorhash` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `expires` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `colorpurchase`
+-- Struktura tabeli dla tabeli `colorpurchase`
 --
 
 CREATE TABLE `colorpurchase` (
-  `id` int(11) NOT NULL,
-  `buyerid` int(11) NOT NULL,
-  `colorid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `buyerid` int NOT NULL,
+  `colorid` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `colors`
+-- Struktura tabeli dla tabeli `colors`
 --
 
 CREATE TABLE `colors` (
-  `id` int(11) NOT NULL,
-  `colorname` text COLLATE utf8_polish_ci NOT NULL,
-  `hex` text COLLATE utf8_polish_ci DEFAULT NULL,
-  `colorclass` text COLLATE utf8_polish_ci NOT NULL,
-  `adminonly` tinyint(1) NOT NULL DEFAULT 0,
-  `redaktoronly` tinyint(1) NOT NULL DEFAULT 0,
-  `cost` int(11) NOT NULL DEFAULT 1000
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Dumping data for table `colors`
---
-
-INSERT INTO `colors` (`id`, `colorname`, `hex`, `colorclass`, `adminonly`, `redaktoronly`, `cost`) VALUES
-(1, 'Styl domyślny', NULL, 'NormalNameStyle', 0, 0, 0),
-(2, 'Admin', '#FF69B4', 'AdminNameStyle', 1, 0, 0),
-(3, 'Redaktor', '#BDB76B', 'RedaktorNameStyle', 0, 1, 0),
-(4, 'Niebieski', '#0000FF', 'BlueNameStyle', 0, 0, 10),
-(5, 'Incognito', '#000000', 'BlackNameStyle', 0, 0, 100),
-(6, 'Głęboki kolor nieba', '#00BFFF', 'DeepSkyBlueNameStyle', 0, 0, 20),
-(7, 'Wiosenny Zielony', '#00FF7F', 'SpringGreenNameStyle', 0, 0, 20),
-(8, 'Zielony', '#008000', 'GreenNameStyle', 0, 0, 10),
-(9, 'Czerwony', '#FF0000', 'RedNameStyle', 0, 0, 10),
-(10, '#0BACA0', '#0BACA0', 'BacaNameStyle', 0, 0, 100),
-(11, 'Amarantowy', '#E61C66', 'AmarantowyNameStyle', 0, 0, 50),
-(12, 'Autorski', NULL, 'SkopiowanyZInternetu', 1, 0, 0),
-(14, 'Słoneczna Pomarańcza', '#ff8000', 'FruitOrange', 0, 0, 30),
-(15, 'Gęsta trawa', '#517F19', 'GrassGreen', 0, 0, 30),
-(16, 'Dojrzały banan', '#FFC100', 'BananaYellow', 0, 0, 30),
-(17, 'Dorodna śliwka', '#884EA0', 'PlumPurple', 0, 0, 30),
-(18, 'Szumiący Strumień', '#195EA5', 'StreamBlue', 0, 0, 30),
-(19, 'Plażowy Krab', '#ED3333', 'CrabRed', 0, 0, 30);
+  `id` int NOT NULL,
+  `colorname` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `hex` text CHARACTER SET utf8 COLLATE utf8_polish_ci,
+  `colorclass` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `adminonly` tinyint(1) NOT NULL DEFAULT '0',
+  `redaktoronly` tinyint(1) NOT NULL DEFAULT '0',
+  `cost` int NOT NULL DEFAULT '1000'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cytaty`
+-- Struktura tabeli dla tabeli `cytaty`
 --
 
 CREATE TABLE `cytaty` (
-  `id` int(11) NOT NULL,
-  `autor` text COLLATE utf8_polish_ci NOT NULL,
-  `cytat` text COLLATE utf8_polish_ci NOT NULL,
-  `uploaderid` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `autor` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `cytat` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `uploaderid` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `memelikes`
+-- Struktura tabeli dla tabeli `maturas`
+--
+
+CREATE TABLE `maturas` (
+  `id` int NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `teacher` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `number` int NOT NULL DEFAULT '1',
+  `accepted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `memelikes`
 --
 
 CREATE TABLE `memelikes` (
-  `id` int(11) NOT NULL,
-  `person` int(11) NOT NULL,
-  `memeid` int(11) NOT NULL,
-  `value` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `person` int NOT NULL,
+  `memeid` int NOT NULL,
+  `value` tinyint NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `memy`
+-- Struktura tabeli dla tabeli `memy`
 --
 
 CREATE TABLE `memy` (
-  `id` int(11) NOT NULL,
-  `authorid` int(11) NOT NULL,
-  `adddate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `title` text COLLATE utf8_polish_ci NOT NULL,
-  `file` text COLLATE utf8_polish_ci NOT NULL,
-  `ponadczasowy` tinyint(1) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `authorid` int NOT NULL,
+  `adddate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `title` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `file` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `ponadczasowy` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notes`
+-- Struktura tabeli dla tabeli `notes`
 --
 
 CREATE TABLE `notes` (
-  `id` int(11) NOT NULL,
-  `title` text COLLATE utf8_polish_ci NOT NULL,
-  `owner` int(11) NOT NULL,
-  `content` text COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `title` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `owner` int NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ogloszenia`
+-- Struktura tabeli dla tabeli `ogloszenia`
 --
 
 CREATE TABLE `ogloszenia` (
-  `id` int(11) NOT NULL,
-  `title` text COLLATE utf8_polish_ci NOT NULL,
-  `text` text COLLATE utf8_polish_ci NOT NULL,
-  `pinned` tinyint(1) NOT NULL DEFAULT 0,
-  `date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `autor` int(11) NOT NULL,
-  `colorclass` text COLLATE utf8_polish_ci NOT NULL,
+  `id` int NOT NULL,
+  `title` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `text` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `pinned` tinyint(1) NOT NULL DEFAULT '0',
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `autor` int NOT NULL,
+  `colorclass` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `expirydate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlisty`
+-- Struktura tabeli dla tabeli `playlisty`
 --
 
 CREATE TABLE `playlisty` (
-  `id` int(11) NOT NULL,
-  `nazwa` text COLLATE utf8_polish_ci NOT NULL,
-  `autor` int(11) NOT NULL,
-  `zawartosc` text COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `nazwa` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `autor` int NOT NULL,
+  `zawartosc` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `quotelikes`
+-- Struktura tabeli dla tabeli `quotelikes`
 --
 
 CREATE TABLE `quotelikes` (
-  `id` int(11) NOT NULL,
-  `personid` int(11) NOT NULL,
-  `quoteid` int(11) NOT NULL,
-  `value` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `personid` int NOT NULL,
+  `quoteid` int NOT NULL,
+  `value` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `user_name` text COLLATE utf8_polish_ci NOT NULL,
-  `user_pass` text COLLATE utf8_polish_ci NOT NULL,
-  `user_nrwdzienniku` int(11) NOT NULL,
-  `activated` tinyint(1) NOT NULL DEFAULT 0,
-  `isadmin` tinyint(1) NOT NULL DEFAULT 0,
-  `redaktor` tinyint(1) NOT NULL DEFAULT 0,
-  `color` int(11) NOT NULL DEFAULT 1,
-  `RakCoins` int(11) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `user_name` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `user_pass` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `user_nrwdzienniku` int NOT NULL,
+  `activated` tinyint(1) NOT NULL DEFAULT '0',
+  `isadmin` tinyint(1) NOT NULL DEFAULT '0',
+  `redaktor` tinyint(1) NOT NULL DEFAULT '0',
+  `color` int NOT NULL DEFAULT '1',
+  `RakCoins` int NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `zadania`
+-- Struktura tabeli dla tabeli `zadania`
 --
 
 CREATE TABLE `zadania` (
-  `id` int(11) NOT NULL,
-  `category` text COLLATE utf8_polish_ci NOT NULL,
-  `content` text COLLATE utf8_polish_ci NOT NULL,
-  `link` text COLLATE utf8_polish_ci NOT NULL,
-  `date` date DEFAULT NULL DEFAULT 0,
-  `accepted` int(11) NOT NULL DEFAULT 0 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `id` int NOT NULL,
+  `category` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `content` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `link` text CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `date` date DEFAULT NULL,
+  `accepted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_polish_ci;
 
 --
--- Indexes for dumped tables
+-- Indeksy dla zrzutów tabel
 --
 
 --
--- Indexes for table `authtokens`
+-- Indeksy dla tabeli `authtokens`
 --
 ALTER TABLE `authtokens`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userid` (`userid`);
 
 --
--- Indexes for table `colorpurchase`
+-- Indeksy dla tabeli `colorpurchase`
 --
 ALTER TABLE `colorpurchase`
   ADD PRIMARY KEY (`id`),
@@ -237,20 +227,26 @@ ALTER TABLE `colorpurchase`
   ADD KEY `colorid` (`colorid`);
 
 --
--- Indexes for table `colors`
+-- Indeksy dla tabeli `colors`
 --
 ALTER TABLE `colors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cytaty`
+-- Indeksy dla tabeli `cytaty`
 --
 ALTER TABLE `cytaty`
   ADD PRIMARY KEY (`id`),
   ADD KEY `uploaderid` (`uploaderid`);
 
 --
--- Indexes for table `memelikes`
+-- Indeksy dla tabeli `maturas`
+--
+ALTER TABLE `maturas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `memelikes`
 --
 ALTER TABLE `memelikes`
   ADD PRIMARY KEY (`id`),
@@ -258,35 +254,35 @@ ALTER TABLE `memelikes`
   ADD KEY `memeid` (`memeid`);
 
 --
--- Indexes for table `memy`
+-- Indeksy dla tabeli `memy`
 --
 ALTER TABLE `memy`
   ADD PRIMARY KEY (`id`),
   ADD KEY `authorid` (`authorid`);
 
 --
--- Indexes for table `notes`
+-- Indeksy dla tabeli `notes`
 --
 ALTER TABLE `notes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `owner` (`owner`);
 
 --
--- Indexes for table `ogloszenia`
+-- Indeksy dla tabeli `ogloszenia`
 --
 ALTER TABLE `ogloszenia`
   ADD PRIMARY KEY (`id`),
   ADD KEY `autorid` (`autor`);
 
 --
--- Indexes for table `playlisty`
+-- Indeksy dla tabeli `playlisty`
 --
 ALTER TABLE `playlisty`
   ADD PRIMARY KEY (`id`),
   ADD KEY `autor` (`autor`);
 
 --
--- Indexes for table `quotelikes`
+-- Indeksy dla tabeli `quotelikes`
 --
 ALTER TABLE `quotelikes`
   ADD PRIMARY KEY (`id`),
@@ -294,14 +290,14 @@ ALTER TABLE `quotelikes`
   ADD KEY `personid` (`personid`) USING BTREE;
 
 --
--- Indexes for table `users`
+-- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `color` (`color`);
 
 --
--- Indexes for table `zadania`
+-- Indeksy dla tabeli `zadania`
 --
 ALTER TABLE `zadania`
   ADD PRIMARY KEY (`id`);
@@ -311,140 +307,146 @@ ALTER TABLE `zadania`
 --
 
 --
--- AUTO_INCREMENT for table `authtokens`
+-- AUTO_INCREMENT dla tabeli `authtokens`
 --
 ALTER TABLE `authtokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `colorpurchase`
+-- AUTO_INCREMENT dla tabeli `colorpurchase`
 --
 ALTER TABLE `colorpurchase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `colors`
+-- AUTO_INCREMENT dla tabeli `colors`
 --
 ALTER TABLE `colors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `cytaty`
+-- AUTO_INCREMENT dla tabeli `cytaty`
 --
 ALTER TABLE `cytaty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `memelikes`
+-- AUTO_INCREMENT dla tabeli `maturas`
+--
+ALTER TABLE `maturas`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `memelikes`
 --
 ALTER TABLE `memelikes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `memy`
+-- AUTO_INCREMENT dla tabeli `memy`
 --
 ALTER TABLE `memy`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `notes`
+-- AUTO_INCREMENT dla tabeli `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `ogloszenia`
+-- AUTO_INCREMENT dla tabeli `ogloszenia`
 --
 ALTER TABLE `ogloszenia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `playlisty`
+-- AUTO_INCREMENT dla tabeli `playlisty`
 --
 ALTER TABLE `playlisty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `quotelikes`
+-- AUTO_INCREMENT dla tabeli `quotelikes`
 --
 ALTER TABLE `quotelikes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `zadania`
+-- AUTO_INCREMENT dla tabeli `zadania`
 --
 ALTER TABLE `zadania`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Constraints for table `authtokens`
+-- Ograniczenia dla tabeli `authtokens`
 --
 ALTER TABLE `authtokens`
   ADD CONSTRAINT `userid` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `colorpurchase`
+-- Ograniczenia dla tabeli `colorpurchase`
 --
 ALTER TABLE `colorpurchase`
   ADD CONSTRAINT `buyerid` FOREIGN KEY (`buyerid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `colorid` FOREIGN KEY (`colorid`) REFERENCES `colors` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cytaty`
+-- Ograniczenia dla tabeli `cytaty`
 --
 ALTER TABLE `cytaty`
   ADD CONSTRAINT `uploaderid` FOREIGN KEY (`uploaderid`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `memelikes`
+-- Ograniczenia dla tabeli `memelikes`
 --
 ALTER TABLE `memelikes`
   ADD CONSTRAINT `memeid` FOREIGN KEY (`memeid`) REFERENCES `memy` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `person` FOREIGN KEY (`person`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `person` FOREIGN KEY (`person`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `memy`
+-- Ograniczenia dla tabeli `memy`
 --
 ALTER TABLE `memy`
   ADD CONSTRAINT `authorid` FOREIGN KEY (`authorid`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `notes`
+-- Ograniczenia dla tabeli `notes`
 --
 ALTER TABLE `notes`
   ADD CONSTRAINT `owner` FOREIGN KEY (`owner`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ogloszenia`
+-- Ograniczenia dla tabeli `ogloszenia`
 --
 ALTER TABLE `ogloszenia`
   ADD CONSTRAINT `autorid` FOREIGN KEY (`autor`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `playlisty`
+-- Ograniczenia dla tabeli `playlisty`
 --
 ALTER TABLE `playlisty`
   ADD CONSTRAINT `autor` FOREIGN KEY (`autor`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `quotelikes`
+-- Ograniczenia dla tabeli `quotelikes`
 --
 ALTER TABLE `quotelikes`
   ADD CONSTRAINT `personid` FOREIGN KEY (`personid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `quoteid` FOREIGN KEY (`quoteid`) REFERENCES `cytaty` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `users`
+-- Ograniczenia dla tabeli `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `color` FOREIGN KEY (`color`) REFERENCES `colors` (`id`);
