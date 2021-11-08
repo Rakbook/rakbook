@@ -27,7 +27,7 @@ require_once('userinfo.php');
 
 			<!-- here you can put some announcements, example below -->
 			<!-- <div class="headline"> Dołącz na <a href="https://discord.gg/uCXf2hE">Klasowego discorda!</a></div> -->
-			<div class="headline" style="color: gold;">Sprawdź zupełnie nowe <a href="zadaniaDomowe.php">zadania domowe</a>!</div>
+			<div class="headline" style="color: gold;">Nowy kolor już dostępny! <a href="colorsshop.php">Sprawdź sklep</a>!</div>
 
 			<!-- changelog -->
 			<div class="changelogContainerMain">
