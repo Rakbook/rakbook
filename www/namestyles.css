@@ -102,7 +102,9 @@
 	font-weight: bold;
 	background-clip:border-box;
 	-webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent;
+	-moz-background-clip: text;
+	-moz-text-fill-color: transparent;
 	color: white; /* fallback color */
 	background-image:
 	url('data:image/svg+xml;utf8, <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" width="4" height="4" fill="white"/><rect width="4" height="4" fill="%23848484"/><rect y="4" width="4" height="4" fill="white"/><rect x="4" y="4" width="4" height="4" fill="%23848484"/></svg>');
