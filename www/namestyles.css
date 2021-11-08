@@ -97,3 +97,13 @@
 	75%   {color:Crimson; }
   100% {color:HotPink;letter-spacing: normal;}
 }
+
+.fakeTransparent {
+	font-weight: bold;
+	background-clip:border-box;
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	color: white; /* fallback color */
+	background-image:
+	url('data:image/svg+xml;utf8, <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" width="8" height="8" fill="white"/><rect width="8" height="8" fill="%23BFBFBF"/><rect y="8" width="8" height="8" fill="white"/><rect x="8" y="8" width="8" height="8" fill="%23BFBFBF"/></svg>');
+}
