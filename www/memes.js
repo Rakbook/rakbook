@@ -1,6 +1,6 @@
 // ------------- Losowe Kolorki ---------------
 function randomColorClass(elementID){
-  var colors = ["red", "green", "blue", "yellow"];
+  var colors = ["blue", "red", "yellow", "green", "jadeite", "orange", "purple"];
   elementID.classList.add(colors[Math.floor(Math.random() * colors.length)]);
 }
 
