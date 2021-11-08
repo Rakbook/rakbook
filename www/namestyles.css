@@ -100,7 +100,7 @@
 
 .fakeTransparent {
 	font-weight: bold;
-	background-clip:border-box;
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	-moz-background-clip: text;
