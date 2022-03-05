@@ -6,7 +6,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get -y install libc-client-dev l
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl && docker-php-ext-install imap
 RUN docker-php-ext-install mysqli
 
-COPY ./www/. /var/www/html/
+COPY ./www /var/www/html/
 
 COPY ./msmtprc /etc/msmtprc
 RUN chown www-data /etc/msmtprc && chmod 600 /etc/msmtprc
