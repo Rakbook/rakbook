@@ -10,7 +10,7 @@ include("requestuserdata.php");
 
 # check for quotes waiting to be removed
 if (!empty($_POST['postToRemove'])) {
-	if(($_SESSION['redaktor']==0)||($_SESSION['userisadmin']==0))
+	if(($_SESSION['redaktor']==0) && ($_SESSION['userisadmin']==0))
 	{
 		header("Location: main.php");
 		die();
