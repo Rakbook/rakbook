@@ -16,7 +16,7 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
       with:
-        registry: registry.lifeisoverrated.pl
+        registry: registry.mikolajjuda.dev
         repository: rakbook-old
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
